@@ -1,3 +1,9 @@
+import ResponsiveVideo from "./_component/hero-section";
+
 export default function page() {
-	return <div>page</div>;
+	return (
+		<div className="min-h-screen">
+			<ResponsiveVideo />
+		</div>
+	);
 }
