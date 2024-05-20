@@ -1,7 +1,7 @@
 export const siteConfig = {
 	name: "Frikanza",
 	url: "https://frikanza.vercel.app",
-	ogImage: "https://frikanza.vercel.app/og.jpg",
+	ogImage: "https://frikanza.vercel.app/frikanza-og-image.png",
 	description:
 		"Discover unparalleled luxury and elegance with Mansa Musa Couture. Our exclusive collection of high-end fashion blends timeless sophistication with modern design. Elevate your style with our exquisite pieces, crafted to perfection for the discerning individual.",
 	links: {
