@@ -13,7 +13,6 @@ export default function Header() {
 	const [navTextColor, setNavTextColor] = useState("white");
 	const [logoColor, setLogoColor] = useState(100);
 	const [scrollDirection, setScrollDirection] = useState("up");
-	const [lastScrollY, setLastScrollY] = useState(30);
 	const pathname = usePathname();
 
 	useEffect(() => {
@@ -146,7 +145,7 @@ export default function Header() {
 				<button onClick={() => setOpen((prev) => !prev)} className="lg:hidden">
 					<EqualIcon
 						size={20}
-						className="text-white"
+						className={`${pathname === "/" ? "text-white" : "text-black"} `}
 						style={{
 							filter: pathname === "/" ? `brightness(${logoColor}%)` : "",
 						}}
