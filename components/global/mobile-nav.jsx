@@ -6,7 +6,7 @@ export default function MobileNav({ open, setOpen }) {
 		<nav
 			className={`${
 				open ? "translate-x-0" : "-translate-x-full"
-			} lg:hidden fixed inset-0 h-screen bg-black custom-easing pt-5 overflow-auto`}
+			} lg:hidden fixed inset-0 h-[100dvh] bg-black custom-easing pt-5 overflow-auto`}
 		>
 			<div className="relative flex items-center justify-between w-full px-5 ">
 				<div></div>

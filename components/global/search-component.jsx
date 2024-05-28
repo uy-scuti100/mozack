@@ -12,7 +12,7 @@ export default function SearchComonent({ openSearch, setOpenSearch }) {
 		<nav
 			className={`${
 				openSearch ? "translate-x-0" : "translate-x-[100%]"
-			}  z-[999] fixed left-0 right-0 top-0 bottom-0 h-screen bg-black custom-easing p-5 overflow-auto`}
+			}  z-[999] fixed left-0 right-0 top-0 bottom-0 h-[100dvh] bg-black custom-easing p-5 overflow-auto`}
 		>
 			<div className="relative">
 				<div className="flex items-center justify-between w-full">
