@@ -147,7 +147,9 @@ export default function Header() {
 					<EqualIcon
 						size={20}
 						className="text-white"
-						style={{ filter: `brightness(${logoColor}%)` }}
+						style={{
+							filter: pathname === "/" ? `brightness(${logoColor}%)` : "",
+						}}
 					/>
 				</button>
 
@@ -174,14 +176,18 @@ export default function Header() {
 						<Search
 							size={20}
 							className={`${pathname === "/" ? "text-white" : "text-black"} `}
-							style={{ filter: `brightness(${logoColor}%)` }}
+							style={{
+								filter: pathname === "/" ? `brightness(${logoColor}%)` : "",
+							}}
 						/>
 					</button>
 					<button className="hidden md:block">
 						<User2
 							size={20}
 							className={`${pathname === "/" ? "text-white" : "text-black"} `}
-							style={{ filter: `brightness(${logoColor}%)` }}
+							style={{
+								filter: pathname === "/" ? `brightness(${logoColor}%)` : "",
+							}}
 						/>
 					</button>
 					<button>
