@@ -1,6 +1,6 @@
 const ResponsiveVideo = () => {
 	return (
-		<div className="relative w-full h-screen bg-center bg-no-repeat bg-cover brightness-95 bg-hero">
+		<div className="relative w-full h-[100svh] bg-center bg-no-repeat bg-cover brightness-95 bg-hero">
 			<div
 				className="absolute inset-0 z-40 top-[70%]"
 				style={{

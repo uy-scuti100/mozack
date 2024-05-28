@@ -143,15 +143,25 @@ export default function Header() {
 						Accessories
 					</Link>
 				</div>
-				<button onClick={() => setOpen((prev) => !prev)} className="lg:hidden">
-					<EqualIcon
-						size={20}
-						style={{
-							filter: `${pathname === "/" ? `brightness(${logoColor}%)` : ""}`,
-							color: `${pathname === "/" ? "white" : "black"}`,
-						}}
-					/>
-				</button>
+				<div
+					style={{
+						color: `${navTextColor}`,
+						filter: `brightness(${logoColor}%)`,
+					}}
+					className="lg:hidden"
+				>
+					<button onClick={() => setOpen((prev) => !prev)}>
+						<EqualIcon
+							size={20}
+							style={{
+								filter: `${
+									pathname === "/" ? `brightness(${logoColor}%)` : ""
+								}`,
+								color: `${pathname === "/" ? "white" : "black"}`,
+							}}
+						/>
+					</button>
+				</div>
 
 				<Link
 					href={"/"}
