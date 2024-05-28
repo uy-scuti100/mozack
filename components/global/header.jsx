@@ -1,8 +1,6 @@
 "use client";
-
-import { HiOutlineMenuAlt4 } from "react-icons/hi";
 import { useEffect, useState } from "react";
-import { Equal, Search, ShoppingBag, User2 } from "lucide-react";
+import { EqualIcon, Search, ShoppingBag, User2 } from "lucide-react";
 import Link from "next/link";
 
 import MobileNav from "./mobile-nav";
@@ -15,7 +13,7 @@ export default function Header() {
 	const [navTextColor, setNavTextColor] = useState("white");
 	const [logoColor, setLogoColor] = useState(100);
 	const [scrollDirection, setScrollDirection] = useState("up");
-	const [lastScrollY, setLastScrollY] = useState(50);
+	const [lastScrollY, setLastScrollY] = useState(30);
 	const pathname = usePathname();
 
 	useEffect(() => {
@@ -97,6 +95,8 @@ export default function Header() {
 				className={` ${
 					scrollDirection === "down"
 						? "-translate-y-[180%]"
+						: scrollDirection === "up" && window.innerHeight <= 100
+						? "translate-y-0"
 						: "translate-y-[-30px]"
 				} z-[999] fixed w-full top-[30px] left-0 right-0 h-[50px] transition-all duration-500 ease-in-out px-5 flex justify-between items-center py-10`}
 			>
@@ -142,7 +142,7 @@ export default function Header() {
 					</Link>
 				</div>
 				<button onClick={() => setOpen((prev) => !prev)} className="lg:hidden">
-					<Equal
+					<EqualIcon
 						size={20}
 						className="text-white"
 						style={{ filter: `brightness(${logoColor}%)` }}
@@ -171,22 +171,26 @@ export default function Header() {
 					<button onClick={() => setOpenSearch((prev) => !prev)}>
 						<Search
 							size={20}
-							className="text-white"
+							className={`${pathname === "/" ? "text-white" : "text-black"} `}
 							style={{ filter: `brightness(${logoColor}%)` }}
 						/>
 					</button>
 					<button className="hidden md:block">
 						<User2
 							size={20}
-							className="text-white"
+							className={`${pathname === "/" ? "text-white" : "text-black"} `}
 							style={{ filter: `brightness(${logoColor}%)` }}
 						/>
 					</button>
 					<button>
 						<ShoppingBag
 							size={20}
-							className="text-white"
-							style={{ filter: `brightness(${logoColor}%)` }}
+							className={`${pathname === "/" ? "text-white" : "text-black"} `}
+							style={{
+								filter: `${
+									pathname === "/" ? `brightness(${logoColor}%)` : ""
+								}`,
+							}}
 						/>
 					</button>
 				</div>

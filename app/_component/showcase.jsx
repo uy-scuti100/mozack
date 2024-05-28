@@ -28,12 +28,12 @@ export default function Showcase() {
 						<ShoppingBag className="w-5 h-5 mr-2 " />
 						Shop Seats{" "}
 					</div>
-					<div className="absolute z-50 font-medium text-black rounded-none left-5 font-mont top-5 ">
+					{/* <div className="absolute z-50 font-medium text-black rounded-none left-5 font-mont top-5 ">
 						<p>designed with purpose</p>
 						<p className="px-2 text-white bg-black">
 							up to 30% off bestselling furniture
 						</p>
-					</div>
+					</div> */}
 				</Link>
 				<div className="flex flex-col w-full h-full gap-2 sm:h-auto">
 					<Link href={"/collections/tables"} className="relative">
@@ -56,12 +56,12 @@ export default function Showcase() {
 							<ShoppingBag className="w-5 h-5 mr-2 " />
 							Shop Tables{" "}
 						</div>
-						<div className="absolute z-50 font-medium text-right text-white rounded-none right-5 font-mont top-5 ">
+						{/* <div className="absolute z-50 font-medium text-right text-white rounded-none right-5 font-mont top-5 ">
 							<p>stunning from any angle</p>
 							<p className="px-2 text-black bg-white">
 								up to 20% off this weekend
 							</p>
-						</div>
+						</div> */}
 					</Link>
 					<Link href={"/collections/lighting"} className="relative">
 						<Image
@@ -83,12 +83,12 @@ export default function Showcase() {
 							<ShoppingBag className="w-5 h-5 mr-2 " />
 							Shop lights{" "}
 						</div>
-						<div className="absolute z-50 font-medium text-right text-white rounded-none right-5 font-mont top-5">
+						{/* <div className="absolute z-50 font-medium text-right text-white rounded-none right-5 font-mont top-5">
 							<p>the one that changes everything</p>
 							<p className="px-2 text-white bg-black">
 								save 10% on every $100 worth of purchase
 							</p>
-						</div>
+						</div> */}
 					</Link>
 				</div>
 			</div>
@@ -115,12 +115,12 @@ export default function Showcase() {
 							<ShoppingBag className="w-5 h-5 mr-2 " />
 							Shop Outdoors{" "}
 						</div>
-						<div className="absolute z-50 font-medium text-white rounded-none left-5 font-mont top-5 ">
+						{/* <div className="absolute z-50 font-medium text-white rounded-none left-5 font-mont top-5 ">
 							<p>stunning from any angle</p>
 							<p className="px-2 text-black bg-white">
 								up to 20% off this weekend
 							</p>
-						</div>
+						</div> */}
 					</Link>
 					<Link href={"/collections/lighting"} className="relative">
 						<Image
@@ -142,12 +142,12 @@ export default function Showcase() {
 							<ShoppingBag className="w-5 h-5 mr-2 " />
 							Shop accessories{" "}
 						</div>
-						<div className="absolute z-50 font-medium text-white rounded-none left-5 font-mont top-5">
+						{/* <div className="absolute z-50 font-medium text-white rounded-none left-5 font-mont top-5">
 							<p>the one that changes everything</p>
 							<p className="px-2 text-white bg-black">
 								save 10% on every $100 worth of purchase
 							</p>
-						</div>
+						</div> */}
 					</Link>
 				</div>
 				<Link href={"/collections/seatings"} className="relative sm:row-span-2">
@@ -171,20 +171,26 @@ export default function Showcase() {
 						<ShoppingBag className="w-5 h-5 mr-2 " />
 						Shop storage{" "}
 					</div>
-					<div className="absolute z-50 font-medium text-right text-black rounded-none right-5 font-mont top-5 ">
+					{/* <div className="absolute z-50 font-medium text-right text-black rounded-none right-5 font-mont top-5 ">
 						<p>designed with purpose</p>
 						<p className="px-2 text-white bg-black">
 							up to 30% off bestselling furniture
 						</p>
-					</div>
+					</div> */}
 				</Link>
 			</div>
 
 			<div className="flex flex-col items-center justify-center w-full gap-12 p-20 text-4xl bg-white sm:text-7xl">
-				<h1>New Arrivals</h1>
-				<h1>Bestsellers</h1>
-				<h1>Essentials</h1>
-				<h1>The Work Edit</h1>
+				<Link href={"/"}>
+					{" "}
+					<h1>New Arrivals</h1>
+				</Link>
+				<Link href={"/"}>
+					<h1>Bestsellers</h1>
+				</Link>
+				<Link href={"/"}>
+					<h1>Essentials</h1>
+				</Link>
 			</div>
 		</section>
 	);
