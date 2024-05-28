@@ -146,9 +146,9 @@ export default function Header() {
 				<button onClick={() => setOpen((prev) => !prev)} className="lg:hidden">
 					<EqualIcon
 						size={20}
-						className={`${pathname === "/" ? "text-white" : "text-black"} `}
 						style={{
 							filter: `${pathname === "/" ? `brightness(${logoColor}%)` : ""}`,
+							color: `${pathname === "/" ? "white" : "black"}`,
 						}}
 					/>
 				</button>
@@ -175,29 +175,33 @@ export default function Header() {
 					<button onClick={() => setOpenSearch((prev) => !prev)}>
 						<Search
 							size={20}
-							className={`${pathname === "/" ? "text-white" : "text-black"} `}
 							style={{
-								filter: pathname === "/" ? `brightness(${logoColor}%)` : "",
+								filter: `${
+									pathname === "/" ? `brightness(${logoColor}%)` : ""
+								}`,
+								color: `${pathname === "/" ? "white" : "black"}`,
 							}}
 						/>
 					</button>
 					<button className="hidden md:block">
 						<User2
 							size={20}
-							className={`${pathname === "/" ? "text-white" : "text-black"} `}
 							style={{
-								filter: pathname === "/" ? `brightness(${logoColor}%)` : "",
+								filter: `${
+									pathname === "/" ? `brightness(${logoColor}%)` : ""
+								}`,
+								color: `${pathname === "/" ? "white" : "black"}`,
 							}}
 						/>
 					</button>
 					<button>
 						<ShoppingBag
 							size={20}
-							className={`${pathname === "/" ? "text-white" : "text-black"} `}
 							style={{
 								filter: `${
 									pathname === "/" ? `brightness(${logoColor}%)` : ""
 								}`,
+								color: `${pathname === "/" ? "white" : "black"}`,
 							}}
 						/>
 					</button>

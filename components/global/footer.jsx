@@ -60,20 +60,6 @@ export default function Footer() {
 const MobileFooter = () => {
 	return (
 		<div>
-			<div className="flex flex-col items-start justify-between gap-8 px-4 mt-10">
-				{linksThree.map((link, i) => (
-					<Link
-						key={i}
-						href={link.href}
-						className={`${
-							i === 0 && "border-t border-ash-dark pt-4"
-						} w-full pb-2 text-lg text-white border-b border-ash-dark`}
-					>
-						{link.name}
-					</Link>
-				))}
-			</div>
-
 			<div className="px-4 pt-12">
 				<h2 className="pb-4 text-white font-mont">
 					Sign Up & Save 10% on Your Purchase
@@ -102,7 +88,62 @@ const MobileFooter = () => {
 						</Link>
 					</p>
 				</div>
+			</div>
 
+			<div className="flex flex-col items-start justify-between gap-8 px-4 mt-10">
+				{linksThree.map((link, i) => (
+					<Link
+						key={i}
+						href={link.href}
+						className={`${
+							i === 0 && "border-t border-ash-dark pt-4"
+						} w-full pb-2 text-lg text-white border-b border-ash-dark`}
+					>
+						{link.name}
+					</Link>
+				))}
+			</div>
+
+			<div className="flex flex-wrap gap-8 px-4 pt-12 ">
+				<div className="flex flex-col gap-6">
+					<h2 className="text-white font-mont">About</h2>
+					{linksFour.map((link, i) => (
+						<Link
+							key={i}
+							href={link.href}
+							className="relative text-sm text-ash-dark group w-fit"
+						>
+							{link.name}
+							<div className="absolute -bottom-2 left-0 w-0 group-hover:w-full transition-all duration-500 h-0.5 bg-ash " />
+						</Link>
+					))}
+				</div>
+				<div className="flex flex-col gap-6">
+					<h2 className="text-white font-mont">Help</h2>
+					{links.map((link, i) => (
+						<Link
+							key={i}
+							href={link.href}
+							className="relative text-sm group text-ash-dark w-fit"
+						>
+							{link.name}
+							<div className="absolute -bottom-2 left-0 w-0 group-hover:w-full transition-all duration-500 h-0.5 bg-ash " />
+						</Link>
+					))}
+				</div>
+				<div className="flex flex-col gap-6">
+					<h2 className="text-white font-mont">Contact Us</h2>
+					{linksTwo.map((link, i) => (
+						<Link
+							key={i}
+							href={link.href}
+							className="relative text-sm text-ash-dark group w-fit"
+						>
+							{link.name}
+							<div className="absolute -bottom-2 left-0 w-0 group-hover:w-full transition-all duration-500 h-0.5 bg-ash " />
+						</Link>
+					))}
+				</div>
 				<div className="flex items-center gap-8 pt-12 ">
 					<Link href={"/"}>
 						<FaInstagram className="text-[#aaaaaa] w-6 h-6" />
@@ -126,64 +167,27 @@ const MobileFooter = () => {
 						<FaTiktok className="text-[#aaaaaa] w-6 h-6" />
 					</Link>
 				</div>
-
-				<Link href={"/"} className="flex items-center justify-start pt-12 ">
-					<img src="/logo.svg" alt="logo" className={`w-[120px] h-[50px]`} />
-				</Link>
-				<div className="flex flex-wrap gap-8 px-4 pt-12 ">
-					<div className="flex flex-col gap-6">
-						<h2 className="text-white font-mont">Help</h2>
-						{links.map((link, i) => (
-							<Link
-								key={i}
-								href={link.href}
-								className="relative text-sm group text-ash-dark w-fit"
-							>
-								{link.name}
-								<div className="absolute -bottom-2 left-0 w-0 group-hover:w-full transition-all duration-500 h-0.5 bg-ash " />
-							</Link>
-						))}
-					</div>
-					<div className="flex flex-col gap-6">
-						<h2 className="text-white font-mont">Contact Us</h2>
-						{linksTwo.map((link, i) => (
-							<Link
-								key={i}
-								href={link.href}
-								className="relative text-sm text-ash-dark group w-fit"
-							>
-								{link.name}
-								<div className="absolute -bottom-2 left-0 w-0 group-hover:w-full transition-all duration-500 h-0.5 bg-ash " />
-							</Link>
-						))}
-					</div>
-					<div className="flex flex-col gap-6">
-						<h2 className="text-white font-mont">About</h2>
-						{linksFour.map((link, i) => (
-							<Link
-								key={i}
-								href={link.href}
-								className="relative text-sm text-ash-dark group w-fit"
-							>
-								{link.name}
-								<div className="absolute -bottom-2 left-0 w-0 group-hover:w-full transition-all duration-500 h-0.5 bg-ash " />
-							</Link>
-						))}
-					</div>
-				</div>
-				<div className="pt-4 pb-8 text-sm text-ash-dark">
-					<Link href={"/"}>
-						Mozack Corp. Joint Modern Slavery Act Statement{" "}
+				<div className="pt-12 pb-10">
+					<Link href={"/"} className="flex items-center justify-start ">
+						<img src="/logo.svg" alt="logo" className={`w-[120px] h-[50px]`} />
 					</Link>
-					| <Link href={"/"}> Privacy Policy</Link>
-					<Link href={"/"}> Interest Based Ads</Link> |{" "}
-					<Link href={"/"}> Do Not Sell or Share My Personal Information</Link>{" "}
-					| <Link href={"/"}> Terms & Conditions</Link>
+					<div className="pt-4 pb-8 text-sm text-ash-dark">
+						<Link href={"/"}>
+							Mozack Corp. Joint Modern Slavery Act Statement{" "}
+						</Link>
+						| <Link href={"/"}> Privacy Policy</Link>
+						<Link href={"/"}> Interest Based Ads</Link> |{" "}
+						<Link href={"/"}>
+							{" "}
+							Do Not Sell or Share My Personal Information
+						</Link>{" "}
+						| <Link href={"/"}> Terms & Conditions</Link>
+					</div>
+					<p className="pb-2 text-sm text-ash-dark">Web ID: 1234567890</p>
+					<p className="text-sm text-ash-dark">
+						Copyright © {new Date().getFullYear()} Mozack. All rights reserved.
+					</p>
 				</div>
-				<p className="pb-2 text-sm text-ash-dark">Web ID: 1234567890</p>
-				<p className="text-sm text-ash-dark">
-					Copyright © {new Date().getFullYear()} Mozack. All rights reserved.
-				</p>
 			</div>
 		</div>
 	);
