@@ -2,7 +2,7 @@
 
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
 import { useEffect, useState } from "react";
-import { Search, ShoppingBag, User2 } from "lucide-react";
+import { Equal, Search, ShoppingBag, User2 } from "lucide-react";
 import Link from "next/link";
 
 import MobileNav from "./mobile-nav";
@@ -142,40 +142,11 @@ export default function Header() {
 					</Link>
 				</div>
 				<button onClick={() => setOpen((prev) => !prev)} className="lg:hidden">
-					<svg
-						stroke="currentColor"
-						fill="none"
-						strokeWidth="2"
-						viewBox="0 0 24 24"
-						aria-hidden="true"
+					<Equal
+						size={20}
 						className="text-white"
-						height="20"
-						width="20"
-						xmlns="http://www.w3.org/2000/svg"
-						style="filter: brightness(100%);"
-					>
-						<path
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							d="M4 8h16M4 16h16"
-						></path>
-					</svg>
-					{/* <svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="20"
-						height="20"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						class="lucide lucide-search text-white"
-						style="filter: brightness(100%);"
-					>
-						<circle cx="11" cy="11" r="8"></circle>
-						<path d="m21 21-4.3-4.3"></path>
-					</svg> */}
+						style={{ filter: `brightness(${logoColor}%)` }}
+					/>
 				</button>
 
 				<Link
