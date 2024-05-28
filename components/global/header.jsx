@@ -16,6 +16,14 @@ export default function Header() {
 	const [lastScrollY, setLastScrollY] = useState(30);
 	const pathname = usePathname();
 
+	let windowsize;
+
+	if (typeof window !== "undefined") {
+		useEffect(() => {
+			windowsize = window.innerWidth;
+		}, []);
+	}
+
 	useEffect(() => {
 		const handleScroll = () => {
 			if (pathname === "/") {
@@ -95,7 +103,7 @@ export default function Header() {
 				className={` ${
 					scrollDirection === "down"
 						? "-translate-y-[180%]"
-						: scrollDirection === "up" && window.innerHeight <= 100
+						: scrollDirection === "up" && windowsize <= 100
 						? "translate-y-0"
 						: "translate-y-[-30px]"
 				} z-[999] fixed w-full top-[30px] left-0 right-0 h-[50px] transition-all duration-500 ease-in-out px-5 flex justify-between items-center py-10`}
