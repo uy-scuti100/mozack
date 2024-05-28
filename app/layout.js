@@ -1,9 +1,20 @@
-import { Inter } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/utils";
+import Header from "@/components/global/header";
+import Footer from "@/components/global/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-inter",
+});
 
+const montserrat = Montserrat({
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-montserrat",
+});
 export const metadata = {
 	title: {
 		default: siteConfig.name,
@@ -12,21 +23,21 @@ export const metadata = {
 	metadataBase: new URL(siteConfig.url),
 	description: siteConfig.description,
 	keywords: [
-		"Luxury fashion",
-		"High-end fashion",
-		"Exclusive collection",
-		"Couture clothing",
-		"Designer fashion",
-		"Elegant fashion",
-		"Fashion collection",
-		"Modern luxury",
-		"Sophisticated style",
-		"Premium clothing",
-		"Fashion brand",
-		"Timeless elegance",
-		"Luxury couture",
-		"Fashion for discerning individuals",
-		"Exquisite fashion",
+		"Luxury furniture",
+		"High-end furnishings",
+		"Exclusive furniture collection",
+		"Couture home decor",
+		"Designer furniture",
+		"Elegant home furnishings",
+		"Furniture collection",
+		"Modern luxury furniture",
+		"Sophisticated furniture style",
+		"Premium home furnishings",
+		"Furniture brand",
+		"Timeless furniture elegance",
+		"Luxury furniture couture",
+		"Furniture for discerning individuals",
+		"Exquisite furniture",
 	],
 
 	authors: [
@@ -76,8 +87,12 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
 	return (
-		<html lang="en">
-			<body className={inter.className}>{children}</body>
+		<html lang="en" suppressHydrationWarning>
+			<body className={`${inter.variable} ${montserrat.variable} antialiased`}>
+				<Header />
+				{children}
+				<Footer />
+			</body>
 		</html>
 	);
 }
