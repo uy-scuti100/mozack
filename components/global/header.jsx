@@ -97,7 +97,9 @@ export default function Header() {
 			<nav
 				style={{ backgroundColor: `${navColor}` }}
 				className={` ${
-					scrollDirection === "down" ? "-translate-y-[180%]" : "translate-y-0"
+					scrollDirection === "down"
+						? "-translate-y-[180%]"
+						: "-translate-y-[30px]"
 				} z-[999] fixed w-full top-[30px] left-0 right-0 h-[50px] transition-all duration-500 ease-in-out px-5 flex justify-between items-center py-10`}
 			>
 				<div
