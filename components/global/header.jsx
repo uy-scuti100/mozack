@@ -143,9 +143,7 @@ export default function Header() {
 				</div>
 				<button onClick={() => setOpen((prev) => !prev)} className="lg:hidden">
 					<svg
-						{...(pathname === "/"
-							? { stroke: "currentColor" }
-							: { stroke: "black" })}
+						stroke="currentColor"
 						fill="none"
 						strokeWidth="2"
 						viewBox="0 0 24 24"
@@ -154,7 +152,7 @@ export default function Header() {
 						height="20"
 						width="20"
 						xmlns="http://www.w3.org/2000/svg"
-						style={{ filter: `brightness(${navColor}%)` }}
+						style="filter: brightness(100%);"
 					>
 						<path
 							strokeLinecap="round"
@@ -162,6 +160,22 @@ export default function Header() {
 							d="M4 8h16M4 16h16"
 						></path>
 					</svg>
+					{/* <svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="20"
+						height="20"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="lucide lucide-search text-white"
+						style="filter: brightness(100%);"
+					>
+						<circle cx="11" cy="11" r="8"></circle>
+						<path d="m21 21-4.3-4.3"></path>
+					</svg> */}
 				</button>
 
 				<Link
