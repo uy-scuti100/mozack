@@ -6,7 +6,7 @@ export default function MobileNav({ open, setOpen }) {
 		<nav
 			className={`${
 				open ? "translate-x-0" : "-translate-x-full"
-			} lg:hidden fixed inset-0 h-[100svh] bg-black custom-easing pt-5 overflow-auto`}
+			} lg:hidden fixed inset-0 h-[100dvh] bg-black custom-easing pt-5 overflow-auto`}
 		>
 			<div className="relative flex items-center justify-between w-full px-5 ">
 				<div></div>
@@ -19,7 +19,7 @@ export default function MobileNav({ open, setOpen }) {
 				</button>
 			</div>
 
-			<div className="flex flex-col gap-10 px-5 mt-20 text-xl text-white">
+			<div className="flex flex-col gap-6 px-5 mt-20 text-lg text-white">
 				<Link
 					href={"/collections/seatings"}
 					className="font-medium transition-opacity duration-300 ease-in-out font-mont hover:opacity-70 w-fit"
