@@ -16,14 +16,6 @@ export default function Header() {
 	const [lastScrollY, setLastScrollY] = useState(30);
 	const pathname = usePathname();
 
-	let windowsize;
-
-	if (typeof window !== "undefined") {
-		useEffect(() => {
-			windowsize = window.innerWidth;
-		}, []);
-	}
-
 	useEffect(() => {
 		const handleScroll = () => {
 			if (pathname === "/") {
@@ -81,13 +73,17 @@ export default function Header() {
 	}, [open, openSearch]);
 
 	useEffect(() => {
+		const threshold = 50;
+		let lastScrollYPosition = 0;
+
 		function handleScroll() {
-			if (window.scrollY > lastScrollY) {
-				setScrollDirection("down");
-			} else {
+			const currentScrollY = window.scrollY;
+			if (currentScrollY < lastScrollYPosition) {
 				setScrollDirection("up");
+			} else if (currentScrollY - lastScrollYPosition > threshold) {
+				setScrollDirection("down");
 			}
-			setLastScrollY(window.scrollY);
+			lastScrollYPosition = currentScrollY;
 		}
 
 		window.addEventListener("scroll", handleScroll);
@@ -95,17 +91,13 @@ export default function Header() {
 		return () => {
 			window.removeEventListener("scroll", handleScroll);
 		};
-	}, [lastScrollY]);
+	}, []);
 	return (
 		<header>
 			<nav
 				style={{ backgroundColor: `${navColor}` }}
 				className={` ${
-					scrollDirection === "down"
-						? "-translate-y-[180%]"
-						: scrollDirection === "up" && windowsize <= 100
-						? "translate-y-0"
-						: "translate-y-[-30px]"
+					scrollDirection === "down" ? "-translate-y-[180%]" : "translate-y-0"
 				} z-[999] fixed w-full top-[30px] left-0 right-0 h-[50px] transition-all duration-500 ease-in-out px-5 flex justify-between items-center py-10`}
 			>
 				<div
