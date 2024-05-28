@@ -60,48 +60,6 @@ export default function Footer() {
 const MobileFooter = () => {
 	return (
 		<div>
-			<div className="flex flex-wrap gap-8 px-4 pt-12 ">
-				<div className="flex flex-col gap-6">
-					<h2 className="text-white font-mont">Help</h2>
-					{links.map((link, i) => (
-						<Link
-							key={i}
-							href={link.href}
-							className="relative text-sm group text-ash-dark w-fit"
-						>
-							{link.name}
-							<div className="absolute -bottom-2 left-0 w-0 group-hover:w-full transition-all duration-500 h-0.5 bg-ash " />
-						</Link>
-					))}
-				</div>
-				<div className="flex flex-col gap-6">
-					<h2 className="text-white font-mont">Contact Us</h2>
-					{linksTwo.map((link, i) => (
-						<Link
-							key={i}
-							href={link.href}
-							className="relative text-sm text-ash-dark group w-fit"
-						>
-							{link.name}
-							<div className="absolute -bottom-2 left-0 w-0 group-hover:w-full transition-all duration-500 h-0.5 bg-ash " />
-						</Link>
-					))}
-				</div>
-				<div className="flex flex-col gap-6">
-					<h2 className="text-white font-mont">About</h2>
-					{linksFour.map((link, i) => (
-						<Link
-							key={i}
-							href={link.href}
-							className="relative text-sm text-ash-dark group w-fit"
-						>
-							{link.name}
-							<div className="absolute -bottom-2 left-0 w-0 group-hover:w-full transition-all duration-500 h-0.5 bg-ash " />
-						</Link>
-					))}
-				</div>
-			</div>
-
 			<div className="flex flex-col items-start justify-between gap-8 px-4 mt-10">
 				{linksThree.map((link, i) => (
 					<Link
@@ -172,7 +130,47 @@ const MobileFooter = () => {
 				<Link href={"/"} className="flex items-center justify-start pt-12 ">
 					<img src="/logo.svg" alt="logo" className={`w-[120px] h-[50px]`} />
 				</Link>
-
+				<div className="flex flex-wrap gap-8 px-4 pt-12 ">
+					<div className="flex flex-col gap-6">
+						<h2 className="text-white font-mont">Help</h2>
+						{links.map((link, i) => (
+							<Link
+								key={i}
+								href={link.href}
+								className="relative text-sm group text-ash-dark w-fit"
+							>
+								{link.name}
+								<div className="absolute -bottom-2 left-0 w-0 group-hover:w-full transition-all duration-500 h-0.5 bg-ash " />
+							</Link>
+						))}
+					</div>
+					<div className="flex flex-col gap-6">
+						<h2 className="text-white font-mont">Contact Us</h2>
+						{linksTwo.map((link, i) => (
+							<Link
+								key={i}
+								href={link.href}
+								className="relative text-sm text-ash-dark group w-fit"
+							>
+								{link.name}
+								<div className="absolute -bottom-2 left-0 w-0 group-hover:w-full transition-all duration-500 h-0.5 bg-ash " />
+							</Link>
+						))}
+					</div>
+					<div className="flex flex-col gap-6">
+						<h2 className="text-white font-mont">About</h2>
+						{linksFour.map((link, i) => (
+							<Link
+								key={i}
+								href={link.href}
+								className="relative text-sm text-ash-dark group w-fit"
+							>
+								{link.name}
+								<div className="absolute -bottom-2 left-0 w-0 group-hover:w-full transition-all duration-500 h-0.5 bg-ash " />
+							</Link>
+						))}
+					</div>
+				</div>
 				<div className="pt-4 pb-8 text-sm text-ash-dark">
 					<Link href={"/"}>
 						Mozack Corp. Joint Modern Slavery Act Statement{" "}

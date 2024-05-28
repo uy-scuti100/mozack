@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { EqualIcon, Search, ShoppingBag, User2 } from "lucide-react";
 import Link from "next/link";
+import { HiOutlineMenuAlt4 } from "react-icons/hi";
 
 import MobileNav from "./mobile-nav";
 import SearchComponent from "./search-component";
@@ -147,7 +148,7 @@ export default function Header() {
 						size={20}
 						className={`${pathname === "/" ? "text-white" : "text-black"} `}
 						style={{
-							filter: pathname === "/" ? `brightness(${logoColor}%)` : "",
+							filter: `${pathname === "/" ? `brightness(${logoColor}%)` : ""}`,
 						}}
 					/>
 				</button>
