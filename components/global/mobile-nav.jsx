@@ -92,7 +92,7 @@ export default function MobileNav({ open, setOpen }) {
 
 			<div className="flex items-center justify-center w-full h-px mt-6 bg-slate-700" />
 
-			<div className="flex justify-end gap-5 px-5 mt-10 text-sm text-white ">
+			<div className="absolute flex justify-end gap-5 px-5 mt-10 text-sm text-white bottom-3 right-3 ">
 				<Link href={"/login"}>Instagram</Link>
 				<Link href={"/signup"}>Facebook</Link>
 				<Link href={"/tracking"}>Tiktok</Link>

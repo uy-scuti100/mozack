@@ -15,7 +15,7 @@ export default function Header() {
 	const [navTextColor, setNavTextColor] = useState("white");
 	const [logoColor, setLogoColor] = useState(100);
 	const [scrollDirection, setScrollDirection] = useState("up");
-	const [lastScrollY, setLastScrollY] = useState(30);
+	const [lastScrollY, setLastScrollY] = useState(50);
 	const pathname = usePathname();
 
 	useEffect(() => {
