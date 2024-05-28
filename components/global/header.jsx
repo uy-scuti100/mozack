@@ -142,11 +142,26 @@ export default function Header() {
 					</Link>
 				</div>
 				<button onClick={() => setOpen((prev) => !prev)} className="lg:hidden">
-					<HiOutlineMenuAlt4
-						size={20}
+					<svg
+						{...(pathname === "/"
+							? { stroke: "currentColor" }
+							: { stroke: "black" })}
+						fill="none"
+						strokeWidth="2"
+						viewBox="0 0 24 24"
+						aria-hidden="true"
 						className="text-white"
-						style={{ filter: `brightness(${logoColor}%)` }}
-					/>
+						height="20"
+						width="20"
+						xmlns="http://www.w3.org/2000/svg"
+						style={{ filter: `brightness(${navColor}%)` }}
+					>
+						<path
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							d="M4 8h16M4 16h16"
+						></path>
+					</svg>
 				</button>
 
 				<Link
