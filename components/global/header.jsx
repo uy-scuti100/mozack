@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { EqualIcon, Search, ShoppingBag, User2 } from "lucide-react";
+import { Search, ShoppingBag, User2 } from "lucide-react";
 import Link from "next/link";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
 
@@ -19,7 +19,7 @@ export default function Header() {
 	useEffect(() => {
 		const handleScroll = () => {
 			if (pathname === "/") {
-				if (window.scrollY > window.innerHeight / 2) {
+				if (window.scrollY > window.innerHeight / 3) {
 					setNavColor("white");
 					setNavTextColor("black");
 					setLogoColor(0);
@@ -107,37 +107,37 @@ export default function Header() {
 					style={{ filter: `brightness(${logoColor}%)` }}
 				>
 					<Link
-						href={"/collections/seatings"}
+						href={"/collection/seatings"}
 						className="transition-opacity duration-300 ease-in-out hover:opacity-70"
 					>
 						Seating
 					</Link>
 					<Link
-						href={"/collections/tables"}
+						href={"/collection/tables"}
 						className="transition-opacity duration-300 ease-in-out hover:opacity-70"
 					>
 						Tables
 					</Link>
 					<Link
-						href={"/collections/lighting"}
+						href={"/collection/lighting"}
 						className="transition-opacity duration-300 ease-in-out hover:opacity-70"
 					>
 						Lighting
 					</Link>
 					<Link
-						href={"/collections/storage"}
+						href={"/collection/storage"}
 						className="transition-opacity duration-300 ease-in-out hover:opacity-70"
 					>
 						Storage
 					</Link>
 					<Link
-						href={"/collections/outdoors"}
+						href={"/collection/outdoors"}
 						className="transition-opacity duration-300 ease-in-out hover:opacity-70"
 					>
 						Outdoors
 					</Link>
 					<Link
-						href={"/collections/accessories"}
+						href={"/collection/accessories"}
 						className="transition-opacity duration-300 ease-in-out hover:opacity-70"
 					>
 						Accessories
@@ -151,7 +151,7 @@ export default function Header() {
 					className="lg:hidden"
 				>
 					<button onClick={() => setOpen((prev) => !prev)}>
-						<EqualIcon
+						<HiOutlineMenuAlt4
 							size={20}
 							style={{
 								filter: `${

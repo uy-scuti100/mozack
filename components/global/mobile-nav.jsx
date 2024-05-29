@@ -10,7 +10,7 @@ export default function MobileNav({ open, setOpen }) {
 		>
 			<div className="relative flex items-center justify-between w-full px-5 ">
 				<div></div>
-				<Link href={"/"}>
+				<Link href={"/"} onClick={() => setOpen((prev) => !prev)}>
 					{" "}
 					<img src="/logo.svg" alt="" className={`w-[120px]`} />
 				</Link>
@@ -21,42 +21,42 @@ export default function MobileNav({ open, setOpen }) {
 
 			<div className="flex flex-col gap-6 px-5 mt-10 text-lg text-white">
 				<Link
-					href={"/collections/seatings"}
+					href={"/collection/seatings"}
 					className="font-medium transition-opacity duration-300 ease-in-out font-mont hover:opacity-70 w-fit"
 					onClick={() => setOpen((prev) => !prev)}
 				>
 					Seatings
 				</Link>
 				<Link
-					href={"/collections/tables"}
+					href={"/collection/tables"}
 					className="font-medium transition-opacity duration-300 ease-in-out hover:opacity-70 font-mont w-fit"
 					onClick={() => setOpen((prev) => !prev)}
 				>
 					Tables
 				</Link>
 				<Link
-					href={"/collections/lighting"}
+					href={"/collection/lighting"}
 					className="font-medium transition-opacity duration-300 ease-in-out hover:opacity-70 font-mont w-fit"
 					onClick={() => setOpen((prev) => !prev)}
 				>
 					Lighting
 				</Link>
 				<Link
-					href={"/collections/storage"}
+					href={"/collection/storage"}
 					className="font-medium transition-opacity duration-300 ease-in-out hover:opacity-70 font-mont w-fit"
 					onClick={() => setOpen((prev) => !prev)}
 				>
 					Storage
 				</Link>
 				<Link
-					href={"/collections/outdoors"}
+					href={"/collection/outdoors"}
 					className="font-medium transition-opacity duration-300 ease-in-out hover:opacity-70 font-mont w-fit"
 					onClick={() => setOpen((prev) => !prev)}
 				>
 					Outdoors
 				</Link>
 				<Link
-					href={"/collections/accessories"}
+					href={"/collection/accessories"}
 					className="font-medium transition-opacity duration-300 ease-in-out hover:opacity-70 font-mont w-fit"
 					onClick={() => setOpen((prev) => !prev)}
 				>

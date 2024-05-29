@@ -1,5 +1,5 @@
-import Showcase from "@/app/_component/showcase";
-import ResponsiveVideo from "./_component/hero-section";
+import Showcase from "@/app/_components/showcase";
+import ResponsiveVideo from "./_components/hero-section";
 
 export default function page() {
 	return (

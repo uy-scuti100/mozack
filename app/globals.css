@@ -71,7 +71,7 @@
 		@apply border-border;
 	}
 	body {
-		@apply bg-[rgb(243,240,234)] text-deep-brown;
+		@apply bg-background text-deep-brown;
 	}
 	h1,
 	h2,
