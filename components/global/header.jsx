@@ -107,10 +107,10 @@ export default function Header() {
 					style={{ filter: `brightness(${logoColor}%)` }}
 				>
 					<Link
-						href={"/collection/seatings"}
+						href={"/collection/seats"}
 						className="transition-opacity duration-300 ease-in-out hover:opacity-70"
 					>
-						Seating
+						Seats
 					</Link>
 					<Link
 						href={"/collection/tables"}

@@ -21,11 +21,11 @@ export default function MobileNav({ open, setOpen }) {
 
 			<div className="flex flex-col gap-6 px-5 mt-10 text-lg text-white">
 				<Link
-					href={"/collection/seatings"}
+					href={"/collection/seats"}
 					className="font-medium transition-opacity duration-300 ease-in-out font-mont hover:opacity-70 w-fit"
 					onClick={() => setOpen((prev) => !prev)}
 				>
-					Seatings
+					Seats
 				</Link>
 				<Link
 					href={"/collection/tables"}

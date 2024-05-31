@@ -1,13 +1,11 @@
 import { myQueryFunction } from "@/actions/server";
 import { wixClientServer } from "@/context/providers/server-wix-hook";
 import { siteConfig } from "@/lib/utils";
-export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata({ params }) {
 	try {
 		const id = params.id;
 
 		const { imageUrl, name, desc, keywords } = await myQueryFunction(id);
-
-		const previousImages = (await parent).openGraph?.images || [];
 
 		return {
 			title: `${name.charAt(0).toUpperCase() + name.slice(1)} collection`,
@@ -20,10 +18,15 @@ export async function generateMetadata({ params, searchParams }, parent) {
 				title: name,
 				description: desc,
 				siteName: siteConfig.name,
-				images: [
-					{ imageUrl, width: 1200, height: 630, alt: name },
-					{ ...previousImages },
-				],
+				images: [{ imageUrl, width: 1200, height: 630, alt: name }],
+			},
+			twitter: {
+				card: "summary_large_image",
+				site: "@hussain_joe",
+				creator: "@hussain_joe",
+				title: name,
+				description: desc,
+				image: imageUrl,
 			},
 		};
 	} catch (error) {
