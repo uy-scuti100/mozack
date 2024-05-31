@@ -49,11 +49,11 @@ export default function MobileNav({ open, setOpen }) {
 					Storage
 				</Link>
 				<Link
-					href={"/collection/outdoors"}
+					href={"/collection/outdoor"}
 					className="font-medium transition-opacity duration-300 ease-in-out hover:opacity-70 font-mont w-fit"
 					onClick={() => setOpen((prev) => !prev)}
 				>
-					Outdoors
+					Outdoor
 				</Link>
 				<Link
 					href={"/collection/accessories"}

@@ -10,6 +10,10 @@ const nextConfig = {
 				hostname: "i.pinimg.com",
 				protocol: "https",
 			},
+			{
+				hostname: "static.wixstatic.com",
+				protocol: "https",
+			},
 		],
 	},
 };

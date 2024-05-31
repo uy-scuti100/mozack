@@ -1,3 +1,4 @@
+import { fetchAllProducts } from "@/actions/server";
 import {
 	Breadcrumb,
 	BreadcrumbItem,
@@ -7,7 +8,7 @@ import {
 	BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-export default function page({ params }) {
+export default async function page({ params }) {
 	const id = params.id;
 
 	return (

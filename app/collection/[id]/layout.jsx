@@ -1,18 +1,43 @@
+import { myQueryFunction } from "@/actions/server";
+import { wixClientServer } from "@/context/providers/server-wix-hook";
+import { siteConfig } from "@/lib/utils";
 export async function generateMetadata({ params, searchParams }, parent) {
-	const id = params.id;
+	try {
+		const id = params.id;
 
-	const previousImages = (await parent).openGraph?.images || [];
+		const { imageUrl, name, desc, keywords } = await myQueryFunction(id);
 
-	return {
-		title: `${id.charAt(0).toUpperCase() + id.slice(1)} Collection`,
-		openGraph: {
-			images: [
-				"https://i.pinimg.com/736x/9e4a/8c/9e4a8c3df22bba32f180d5c6c880c0bd.jpg",
-				...previousImages,
-			],
-		},
-	};
+		const previousImages = (await parent).openGraph?.images || [];
+
+		return {
+			title: `${name.charAt(0).toUpperCase() + name.slice(1)} collection`,
+			description: desc,
+			keywords: keywords,
+			openGraph: {
+				type: "website",
+				locale: "en_US",
+				url: `${siteConfig.url}/collection/${id}`,
+				title: name,
+				description: desc,
+				siteName: siteConfig.name,
+				images: [
+					{ imageUrl, width: 1200, height: 630, alt: name },
+					{ ...previousImages },
+				],
+			},
+		};
+	} catch (error) {
+		console.error("Error generating metadata:", error);
+		return {
+			title: "Default Title",
+			description: "Default description",
+			openGraph: {
+				images: [],
+			},
+		};
+	}
 }
-export default async function Layout({ children }) {
+
+export default function Layout({ children }) {
 	return <section className="px-4 pt-32 pb-20">{children}</section>;
 }

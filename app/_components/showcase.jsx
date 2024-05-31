@@ -1,9 +1,21 @@
-import { Button } from "@/components/ui/button";
-import { ArrowBigRight, ArrowBigRightDash, ShoppingBag } from "lucide-react";
+import { wixClientServer } from "@/context/providers/server-wix-hook";
+import { ShoppingBag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Showcase() {
+	// const wixClient = await wixClientServer();
+	// const res = await wixClient.collections.queryCollections().find();
+	// const cats = res.items;
+	// // console.log(cats);
+
+	// let categoryArray = [];
+	// for (let index = 0; index < cats.length; index++) {
+	// 	const cat = cats[index];
+	// 	categoryArray.push(cat);
+	// }
+	// // console.log(categoryArray);
+
 	return (
 		<section className="pt-2">
 			<div className="grid h-full grid-cols-1 gap-2 sm:grid-cols-2">

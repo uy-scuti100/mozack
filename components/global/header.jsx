@@ -131,10 +131,10 @@ export default function Header() {
 						Storage
 					</Link>
 					<Link
-						href={"/collection/outdoors"}
+						href={"/collection/outdoor"}
 						className="transition-opacity duration-300 ease-in-out hover:opacity-70"
 					>
-						Outdoors
+						Outdoor
 					</Link>
 					<Link
 						href={"/collection/accessories"}

@@ -11,29 +11,27 @@ import Link from "next/link";
 
 export default function page() {
 	return (
-		<section className="px-4 pb-40 pt-28">
-			<Breadcrumb>
-				<BreadcrumbList>
-					<BreadcrumbItem>
-						<BreadcrumbLink href="/" className="text-xs font-medium">
-							Home
-						</BreadcrumbLink>
-					</BreadcrumbItem>
-					<BreadcrumbSeparator />
-					<BreadcrumbItem>
-						<BreadcrumbPage className="text-xs font-medium font-mont">
-							Collections
-						</BreadcrumbPage>
-					</BreadcrumbItem>
-				</BreadcrumbList>
-			</Breadcrumb>
-
-			<div className="mt-5">
-				<h2 className="font-semibold">Collections</h2>
-			</div>
-
-			<div className="mt-10">
-				<div className="grid grid-cols-2 gap-x-3 gap-y-16 md:grid-cols-3 lg:grid-cols-4">
+		<main className="px-4 pb-40 pt-28">
+			<div className="sm:px-10 lg:px-28 ">
+				<Breadcrumb>
+					<BreadcrumbList>
+						<BreadcrumbItem>
+							<BreadcrumbLink href="/" className="text-xs font-medium">
+								Home
+							</BreadcrumbLink>
+						</BreadcrumbItem>
+						<BreadcrumbSeparator />
+						<BreadcrumbItem>
+							<BreadcrumbPage className="text-xs font-medium font-mont">
+								Collections
+							</BreadcrumbPage>
+						</BreadcrumbItem>
+					</BreadcrumbList>
+				</Breadcrumb>
+				<div className="mt-5">
+					<h2 className="font-semibold">Collections</h2>
+				</div>
+				<div className="grid grid-cols-2 mt-5 gap-x-3 gap-y-16 lg:grid-cols-3 md:grid-cols-2">
 					{data.map((item) => {
 						return (
 							<Link
@@ -59,7 +57,8 @@ export default function page() {
 					})}
 				</div>
 			</div>
-		</section>
+			;
+		</main>
 	);
 }
 

@@ -1,3 +1,3 @@
 export default function page() {
-	return <div>page</div>;
+	return <main className="px-4 pb-40 pt-28">Single Product page</main>;
 }

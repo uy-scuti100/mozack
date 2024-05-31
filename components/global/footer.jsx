@@ -12,7 +12,6 @@ import {
 import { FaXTwitter } from "react-icons/fa6";
 
 import { Button } from "../ui/button";
-import { Facebook, Instagram, PointerIcon, Youtube } from "lucide-react";
 
 export default function Footer() {
 	// md:flex md:items-center md:justify-between lg:px-8
@@ -249,60 +248,60 @@ const DesktopFooter = () => {
 						</Link>
 					</div>
 				</div>
-				<div className="flex justify-between w-full gap-8 px-4 pt-12 ">
-					<div className="flex flex-col gap-6">
-						<h2 className="text-white font-mont">About</h2>
-						{linksFour.map((link, i) => (
+				<div className="flex flex-col gap-8 pt-12">
+					{linksThree.map((link, i) => {
+						return (
 							<Link
 								key={i}
 								href={link.href}
-								className="relative text-sm text-ash-dark group w-fit"
+								className="px-4 border-b border-ash-dark"
 							>
-								{link.name}
-								<div className="absolute -bottom-2 left-0 w-0 group-hover:w-full transition-all duration-500 h-0.5 bg-ash " />
+								<h2 className="pb-4 text-white font-mont">{link.name}</h2>
 							</Link>
-						))}
-					</div>
-					<div className="flex flex-col gap-6">
-						<h2 className="text-white font-mont">Help</h2>
-						{links.map((link, i) => (
-							<Link
-								key={i}
-								href={link.href}
-								className="relative text-sm group text-ash-dark w-fit"
-							>
-								{link.name}
-								<div className="absolute -bottom-2 left-0 w-0 group-hover:w-full transition-all duration-500 h-0.5 bg-ash " />
-							</Link>
-						))}
-					</div>
-					<div className="flex flex-col gap-6">
-						<h2 className="text-white font-mont">Contact Us</h2>
-						{linksTwo.map((link, i) => (
-							<Link
-								key={i}
-								href={link.href}
-								className="relative text-sm text-ash-dark group w-fit"
-							>
-								{link.name}
-								<div className="absolute -bottom-2 left-0 w-0 group-hover:w-full transition-all duration-500 h-0.5 bg-ash " />
-							</Link>
-						))}
-					</div>
+						);
+					})}
 				</div>
 			</div>
-			<div className="flex flex-col gap-8 pt-12">
-				{linksThree.map((link, i) => {
-					return (
+			<div className="flex justify-between w-full gap-8 px-4 pt-12 ">
+				<div className="flex flex-col gap-6">
+					<h2 className="text-white font-mont">About</h2>
+					{linksFour.map((link, i) => (
 						<Link
 							key={i}
 							href={link.href}
-							className="px-4 border-b border-ash-dark"
+							className="relative text-sm text-ash-dark group w-fit"
 						>
-							<h2 className="pb-4 text-white font-mont">{link.name}</h2>
+							{link.name}
+							<div className="absolute -bottom-2 left-0 w-0 group-hover:w-full transition-all duration-500 h-0.5 bg-ash " />
 						</Link>
-					);
-				})}
+					))}
+				</div>
+				<div className="flex flex-col gap-6">
+					<h2 className="text-white font-mont">Help</h2>
+					{links.map((link, i) => (
+						<Link
+							key={i}
+							href={link.href}
+							className="relative text-sm group text-ash-dark w-fit"
+						>
+							{link.name}
+							<div className="absolute -bottom-2 left-0 w-0 group-hover:w-full transition-all duration-500 h-0.5 bg-ash " />
+						</Link>
+					))}
+				</div>
+				<div className="flex flex-col gap-6">
+					<h2 className="text-white font-mont">Contact Us</h2>
+					{linksTwo.map((link, i) => (
+						<Link
+							key={i}
+							href={link.href}
+							className="relative text-sm text-ash-dark group w-fit"
+						>
+							{link.name}
+							<div className="absolute -bottom-2 left-0 w-0 group-hover:w-full transition-all duration-500 h-0.5 bg-ash " />
+						</Link>
+					))}
+				</div>
 			</div>
 			<div>
 				<div className="flex items-center justify-start pt-12 ">
