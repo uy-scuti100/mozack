@@ -18,7 +18,7 @@ export async function generateMetadata({ params }) {
 				title: name,
 				description: desc,
 				siteName: siteConfig.name,
-				images: [{ imageUrl, width: 1200, height: 630, alt: name }],
+				images: [{ url: imageUrl, width: 1200, height: 630, alt: name }],
 			},
 			twitter: {
 				card: "summary_large_image",
