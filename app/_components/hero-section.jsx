@@ -15,7 +15,7 @@ const ResponsiveVideo = () => {
 				<h1 className="text-[20vw] text-white font-mont leading-none ">
 					MOZACK
 				</h1>
-				<p className="px-2 text-white text-lg text-balance max-w-[550px] font-inter pb-5">
+				<p className="px-2 text-white text-lg text-pretty max-w-[550px] font-inter pb-5">
 					Experience Unmatched Elegance and Comfort with Our Exquisite Furniture
 					Collection
 				</p>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { formatProducts } from "../../../../lib/product-formatter";
 import { fetchAll } from "../../../../lib/queries/fields/index";
 import { collectionsData } from "../../../../lib/utils";
+import getBase64 from "../../../../lib/getBase64";
 
 export default async function page({ params }) {
 	const category = params.category;
@@ -40,7 +41,20 @@ export default async function page({ params }) {
 	const catData = collectionsData[id].filter(
 		(item) => item.slug === category
 	)[0];
-	const { name, image_url, description } = catData;
+	const { name, image_url } = catData;
+
+	// base64 funtion for images blurred data
+
+	const collectionBuffer = await getBase64(image_url);
+	const image_urlBuffers = await Promise.all(
+		categoryProducts.map(async (item) => {
+			const image_urlBuffer = await getBase64(
+				item.collectionMediaItems[0].imageUrl
+			);
+			return image_urlBuffer;
+		})
+	);
+
 	return (
 		<main className="pt-32 pb-20">
 			<BreadcrumbComponent id={category} />
@@ -50,7 +64,13 @@ export default async function page({ params }) {
 						src={image_url}
 						alt={name}
 						fill
+						placeholder="blur"
+						blurDataURL={collectionBuffer}
 						className="object-cover w-full h-full"
+						sizes="(max-width: 480px) 100vw,
+                        (max-width: 768px) 75vw,
+                        (max-width: 1060px) 50vw,
+                        33vw"
 					/>
 					<div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-20"></div>
 				</div>
@@ -73,7 +93,13 @@ export default async function page({ params }) {
 									src={item.collectionMediaItems[0].imageUrl}
 									alt={item.productName}
 									fill
+									placeholder="blur"
+									blurDataURL={image_urlBuffers[index]}
 									className="w-full h-full object-fit lg:object-cover"
+									sizes="(max-width: 480px) 100vw,
+                                    (max-width: 768px) 75vw,
+                                    (max-width: 1060px) 50vw,
+                                    33vw"
 								/>
 								<div
 									className="absolute inset-0 z-20"

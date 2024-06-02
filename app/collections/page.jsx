@@ -8,8 +8,17 @@ import {
 } from "../../components/ui/breadcrumb";
 import Image from "next/image";
 import Link from "next/link";
+import getBase64 from "../../lib/getBase64";
 
-export default function page() {
+export default async function page() {
+	// base64 funtion for images blurred data
+
+	const image_urlBuffers = await Promise.all(
+		data.map(async (item) => {
+			const image_urlBuffer = await getBase64(item.image_url);
+			return image_urlBuffer;
+		})
+	);
 	return (
 		<main className="px-4 pb-40 pt-28">
 			<div className="sm:px-10 lg:px-28 ">
@@ -44,6 +53,8 @@ export default function page() {
 											src={item.image_url}
 											alt={item.name}
 											fill
+											placeholder="blur"
+											blurDataURL={image_urlBuffers[index]}
 											className="w-full h-full object-fit"
 										/>
 										<div

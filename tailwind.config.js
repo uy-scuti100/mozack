@@ -18,7 +18,7 @@ module.exports = {
 		},
 		extend: {
 			backgroundImage: {
-				hero: "url('/bg.jpeg')",
+				hero: "url('/bg.jpeg') ",
 			},
 			fontFamily: {
 				inter: ["var(--font-inter), sans-serif"],
