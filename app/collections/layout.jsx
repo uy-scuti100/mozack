@@ -1,4 +1,4 @@
-export const matatdata = {
+export const matadata = {
 	title: "Collections",
 	description:
 		"Explore Mozack's premium furniture collections, blending luxury with functionality. Elevate your home decor effortlessly. Discover now!",
