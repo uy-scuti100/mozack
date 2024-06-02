@@ -4,21 +4,21 @@ import Link from "next/link";
 import getBase64 from "../../lib/getBase64";
 
 export default async function Showcase() {
-	const images = [
-		"https://i.pinimg.com/564x/72/87/3a/72873a27fe5764eccf586c1d9c4191b1.jpg",
-		"https://i.pinimg.com/736x/23/88/1c/23881cff194c40ffe0013f4a77683bbe.jpg",
-		"https://i.pinimg.com/474x/d7/fe/0f/d7fe0f7f31ef4d38f6c87841022f2168.jpg",
-		"https://i.pinimg.com/564x/58/05/93/580593fe3965903d4850ab3ab97359f6.,jpg",
-		"https://i.pinimg.com/736x/5e/f6/0f/5ef60f94f18369c8416fc4be8327cbf7.jpg",
-		"https://i.pinimg.com/736x/87/f1/49/87f1493a51fa245fb5e75c8f9be664a9.jpg",
-	];
+	// const images = [
+	// 	"https://i.pinimg.com/564x/72/87/3a/72873a27fe5764eccf586c1d9c4191b1.jpg",
+	// 	"https://i.pinimg.com/736x/23/88/1c/23881cff194c40ffe0013f4a77683bbe.jpg",
+	// 	"https://i.pinimg.com/474x/d7/fe/0f/d7fe0f7f31ef4d38f6c87841022f2168.jpg",
+	// 	"https://i.pinimg.com/564x/58/05/93/580593fe3965903d4850ab3ab97359f6.,jpg",
+	// 	"https://i.pinimg.com/736x/5e/f6/0f/5ef60f94f18369c8416fc4be8327cbf7.jpg",
+	// 	"https://i.pinimg.com/736x/87/f1/49/87f1493a51fa245fb5e75c8f9be664a9.jpg",
+	// ];
 
-	const collectionBuffers = await Promise.all(
-		images.map(async (image) => {
-			const buffer = await getBase64(image);
-			return buffer;
-		})
-	);
+	// const collectionBuffers = await Promise.all(
+	// 	images.map(async (image) => {
+	// 		const buffer = await getBase64(image);
+	// 		return buffer;
+	// 	})
+	// );
 
 	return (
 		<section className="pt-2">
@@ -30,8 +30,6 @@ export default async function Showcase() {
 						}
 						width={500}
 						height={500}
-						placeholder="blur"
-						blurDataURL={collectionBuffers[0]}
 						className="object-cover object-bottom w-full sm:h-[100vh]"
 						sizes="(max-width: 480px) 100vw,
                         (max-width: 768px) 75vw,
@@ -59,8 +57,6 @@ export default async function Showcase() {
 							}
 							width={500}
 							height={500}
-							placeholder="blur"
-							blurDataURL={collectionBuffers[1]}
 							className="object-cover w-full sm:h-[50vh]"
 							sizes="(max-width: 480px) 100vw,
                             (max-width: 768px) 75vw,
@@ -86,8 +82,6 @@ export default async function Showcase() {
 							}
 							width={500}
 							height={500}
-							placeholder="blur"
-							blurDataURL={collectionBuffers[2]}
 							className="object-cover w-full sm:h-[50vh]"
 							sizes="(max-width: 480px) 100vw,
                   (max-width: 768px) 75vw,
@@ -143,8 +137,6 @@ export default async function Showcase() {
 							}
 							width={500}
 							height={500}
-							placeholder="blur"
-							blurDataURL={collectionBuffers[4]}
 							className="object-cover w-full sm:h-[50vh]"
 							sizes="(max-width: 480px) 100vw,
                             (max-width: 768px) 75vw,
@@ -171,8 +163,6 @@ export default async function Showcase() {
 						}
 						width={500}
 						height={500}
-						placeholder="blur"
-						blurDataURL={collectionBuffers[5]}
 						className="object-cover object-bottom w-full sm:h-[100vh]"
 						sizes="(max-width: 480px) 100vw,
                         (max-width: 768px) 75vw,
