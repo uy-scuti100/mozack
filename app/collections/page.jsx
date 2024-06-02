@@ -1,7 +1,6 @@
 import {
 	Breadcrumb,
 	BreadcrumbItem,
-	BreadcrumbLink,
 	BreadcrumbList,
 	BreadcrumbPage,
 	BreadcrumbSeparator,
@@ -21,13 +20,13 @@ export default async function page() {
 	);
 	return (
 		<main className="px-4 pb-40 pt-28">
-			<div className="sm:px-10 lg:px-28 ">
+			<div>
 				<Breadcrumb>
 					<BreadcrumbList>
 						<BreadcrumbItem>
-							<BreadcrumbLink href="/" className="text-xs font-medium">
+							<Link href="/" className="text-xs font-medium">
 								Home
-							</BreadcrumbLink>
+							</Link>
 						</BreadcrumbItem>
 						<BreadcrumbSeparator />
 						<BreadcrumbItem>
