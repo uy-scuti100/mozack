@@ -5,6 +5,8 @@ import Header from "../components/global/header";
 import Footer from "../components/global/footer";
 import ReactQueryProvider from "../context/providers/tanstack-query-provider";
 import { WixClientContextProvider } from "../context/providers/wix-client-provider";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -91,6 +93,8 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body className={`${inter.variable} ${montserrat.variable} antialiased`}>
+				<Analytics />
+				<SpeedInsights />
 				<ReactQueryProvider>
 					<WixClientContextProvider>
 						<Header />
