@@ -1,11 +1,12 @@
-import { myQueryFunction } from "@/actions/server";
-import { wixClientServer } from "@/context/providers/server-wix-hook";
-import { siteConfig } from "@/lib/utils";
+import { myCollectionQueryFunction } from "../../../actions/server";
+import { siteConfig } from "../../../lib/utils";
 export async function generateMetadata({ params }) {
 	try {
 		const id = params.id;
 
-		const { imageUrl, name, desc, keywords } = await myQueryFunction(id);
+		const { imageUrl, name, desc, keywords } = await myCollectionQueryFunction(
+			id
+		);
 
 		return {
 			title: `${name.charAt(0).toUpperCase() + name.slice(1)} collection`,
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }) {
 				type: "website",
 				locale: "en_US",
 				url: `${siteConfig.url}/collection/${id}`,
-				title: name,
+				title: `${name.charAt(0).toUpperCase() + name.slice(1)} collection`,
 				description: desc,
 				siteName: siteConfig.name,
 				images: [{ url: imageUrl, width: 1200, height: 630, alt: name }],
@@ -24,7 +25,7 @@ export async function generateMetadata({ params }) {
 				card: "summary_large_image",
 				site: "@hussain_joe",
 				creator: "@hussain_joe",
-				title: name,
+				title: `${name.charAt(0).toUpperCase() + name.slice(1)} collection`,
 				description: desc,
 				image: imageUrl,
 			},
@@ -42,5 +43,5 @@ export async function generateMetadata({ params }) {
 }
 
 export default function Layout({ children }) {
-	return <section className="px-4 pt-32 pb-20">{children}</section>;
+	return <section className="">{children}</section>;
 }

@@ -1,10 +1,10 @@
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
-import { siteConfig } from "@/lib/utils";
-import Header from "@/components/global/header";
-import Footer from "@/components/global/footer";
-import ReactQueryProvider from "@/context/providers/tanstack-query-provider";
-import { WixClientContextProvider } from "@/context/providers/wix-client-provider";
+import { siteConfig } from "../lib/utils";
+import Header from "../components/global/header";
+import Footer from "../components/global/footer";
+import ReactQueryProvider from "../context/providers/tanstack-query-provider";
+import { WixClientContextProvider } from "../context/providers/wix-client-provider";
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -45,7 +45,7 @@ export const metadata = {
 	authors: [
 		{
 			name: "Mozack",
-			url: "https://frikanza.vercel.app",
+			url: "https://mozack.vercel.app",
 		},
 	],
 	creator: "Uy_Scuti",

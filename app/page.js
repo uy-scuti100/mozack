@@ -1,4 +1,4 @@
-import Showcase from "@/app/_components/showcase";
+import Showcase from "./_components/showcase";
 import ResponsiveVideo from "./_components/hero-section";
 export default function page() {
 	// const wixClient = useWixClient();

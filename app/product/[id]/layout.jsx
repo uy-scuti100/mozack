@@ -1,5 +1,3 @@
-import { wixClientServer } from "@/context/providers/server-wix-hook";
-
 export async function generateMetadata({ params, searchParams }, parent) {
 	const id = params.id;
 

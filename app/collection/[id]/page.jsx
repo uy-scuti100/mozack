@@ -1,37 +1,87 @@
-import { fetchAllProducts } from "@/actions/server";
+import { myCollectionQueryFunction } from "../../../actions/server";
 import {
 	Breadcrumb,
 	BreadcrumbItem,
-	BreadcrumbLink,
 	BreadcrumbList,
 	BreadcrumbPage,
 	BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+} from "../../../components/ui/breadcrumb";
+import { collectionsData } from "../../../lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 
 export default async function page({ params }) {
 	const id = params.id;
+	const { imageUrl, name, desc } = await myCollectionQueryFunction(id);
 
 	return (
-		<section className="">
+		<main className="pt-32 pb-20">
 			<BreadcrumbComponent id={id} />
 
-			<div className="mt-5">
-				<h2 className="font-semibold capitalize">{id}</h2>
+			<div className="mt-10 ">
+				<div className="w-full relative h-[500px]  mt-5">
+					<Image
+						src={imageUrl}
+						alt={name}
+						fill
+						className="object-cover w-full h-full"
+					/>
+					<div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-20"></div>
+				</div>
+				<div>
+					<div className="my-10">
+						<h3 className="px-4 text-xl font-semibold font-mont">Categories</h3>
+					</div>
+				</div>
 			</div>
 
-			<div className="mt-5"></div>
-		</section>
+			<div className="grid w-full grid-cols-2 px-4 mt-5 gap-x-6 gap-y-12 md:grid-cols-3 ">
+				{collectionsData[id].map((item, index) => (
+					<div className="flex flex-col gap-5" key={index}>
+						<Link
+							href={`/collection/${id}/${item.slug.toLowerCase()}`}
+							className="flex flex-col w-full h-[280px] sm:h-[287px]  md:h-[300px]  lg:h-[500px] gap-2"
+						>
+							<div className="relative w-full h-full ">
+								<Image
+									src={item.image_url}
+									alt={item.name}
+									fill
+									className="w-full h-full object-fit"
+								/>
+								<div
+									className="absolute inset-0 z-20"
+									style={{
+										background:
+											"linear-gradient(180deg, rgba(0, 0, 0, 0.00) 5%, rgba(0, 0, 0, .1) 100%)",
+									}}
+								/>
+
+								<div className="absolute z-50 px-2 py-1 text-[10px] font-medium text-white uppercase bg-ash left-3 font-mont bottom-3 backdrop-blur-2xl">
+									{item.name}
+								</div>
+							</div>
+						</Link>
+						<div>
+							<p className="text-[#7F7F7F] text-xs md:text-base clam">
+								{item.description.slice(0, 50)}...
+							</p>
+						</div>
+					</div>
+				))}
+			</div>
+		</main>
 	);
 }
 
 const BreadcrumbComponent = ({ id }) => {
 	return (
-		<Breadcrumb>
+		<Breadcrumb className="px-4">
 			<BreadcrumbList>
 				<BreadcrumbItem>
-					<BreadcrumbLink href="/" className="text-xs font-medium">
+					<Link href="/" className="text-xs font-medium">
 						Home
-					</BreadcrumbLink>
+					</Link>
 				</BreadcrumbItem>
 				<BreadcrumbSeparator />
 				<BreadcrumbItem>
@@ -41,8 +91,8 @@ const BreadcrumbComponent = ({ id }) => {
 				</BreadcrumbItem>
 				<BreadcrumbSeparator />
 				<BreadcrumbItem>
-					<BreadcrumbPage className="text-xs font-medium font-mont">
-						{id.charAt(0).toUpperCase() + id.slice(1)}
+					<BreadcrumbPage className="text-xs font-medium capitalize font-mont">
+						{id}
 					</BreadcrumbPage>
 				</BreadcrumbItem>
 			</BreadcrumbList>

@@ -1,8 +1,8 @@
 "use server";
-import { wixClientServer } from "@/context/providers/server-wix-hook";
-import { allProductsKeywords, seoDescriptions } from "@/lib/utils";
+import { wixClientServer } from "../../context/providers/server-wix-hook";
+import { allProductsKeywords, seoDescriptions } from "../../lib/utils";
 
-export async function myQueryFunction(id) {
+export async function myCollectionQueryFunction(id) {
 	if (!id) {
 		throw new Error("Invalid ID: ID cannot be null or undefined");
 	}
@@ -33,6 +33,26 @@ export async function myQueryFunction(id) {
 		}
 	} catch (error) {
 		console.error("Error querying collections:", error);
+		throw error;
+	}
+}
+export async function myProductsFunction() {
+	try {
+		const wixClient = await wixClientServer();
+
+		const results = await wixClient.products.queryProducts().find();
+
+		if (results.items.length > 0) {
+			return results.items;
+		} else {
+			return {
+				name: "Default Name",
+				imageUrl: "",
+				desc: "No description available",
+			};
+		}
+	} catch (error) {
+		console.error("Error querying products:", error);
 		throw error;
 	}
 }

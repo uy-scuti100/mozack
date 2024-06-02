@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "../../components/ui/button";
 import Link from "next/link";
 
 const ResponsiveVideo = () => {
@@ -16,8 +16,8 @@ const ResponsiveVideo = () => {
 					MOZACK
 				</h1>
 				<p className="px-2 text-white text-lg text-balance max-w-[550px] font-inter pb-5">
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore
-					accusantium unde quidem perferendis suscipit
+					Experience Unmatched Elegance and Comfort with Our Exquisite Furniture
+					Collection
 				</p>
 
 				<Link href="/collections">

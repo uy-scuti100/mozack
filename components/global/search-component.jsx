@@ -98,12 +98,11 @@ const searchCard = ({ setOpenSearch }) => {
 		isClient && (
 			<Link
 				onClick={() => setOpenSearch((prev) => !prev)}
-				href={"/collections/seatings"}
+				href={"/collection/seats"}
 				className="flex flex-col w-full h-[280px] sm:h-[287px]  md:h-[300px]  lg:h-[500px] gap-2"
 			>
 				<div className="relative w-full h-full ">
 					<Image
-						// src="https://i.pinimg.com/474x/8a/70/a8/8a70a80a63c83cc64c118dc8cbaa6c52.jpg"
 						src={image}
 						alt="image"
 						fill
