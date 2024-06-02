@@ -1,4 +1,4 @@
-export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata({ params }, parent) {
 	const id = params.id;
 
 	const previousImages = (await parent).openGraph?.images || [];
