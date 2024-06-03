@@ -18,6 +18,7 @@ export default async function page() {
 			return image_urlBuffer;
 		})
 	);
+	// console.log(image_urlBuffers);
 	return (
 		<main className="px-4 pb-40 pt-28">
 			<div>
