@@ -7,7 +7,7 @@ import {
 } from "../../components/ui/breadcrumb";
 import Image from "next/image";
 import Link from "next/link";
-import getBase64 from "../../lib/getBase64";
+import getBase64 from "../api/getBase64";
 
 export default async function page() {
 	// base64 funtion for images blurred data

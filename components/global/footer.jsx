@@ -14,8 +14,6 @@ import { FaXTwitter } from "react-icons/fa6";
 import { Button } from "../ui/button";
 
 export default function Footer() {
-	// md:flex md:items-center md:justify-between lg:px-8
-
 	const [isMobile, setIsMobile] = useState(true);
 	const [email, setEmail] = useState("");
 

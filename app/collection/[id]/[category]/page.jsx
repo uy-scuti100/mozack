@@ -5,7 +5,7 @@ import Link from "next/link";
 import { formatProducts } from "../../../../lib/product-formatter";
 import { fetchAll } from "../../../../lib/queries/fields/index";
 import { collectionsData } from "../../../../lib/utils";
-import getBase64 from "../../../../lib/getBase64";
+import getBase64 from "../../../api/getBase64";
 
 export default async function page({ params }) {
 	const category = params.category;
