@@ -1,6 +1,11 @@
 "use server";
+import getBase64 from "../../app/api/getBase64";
 import { wixClientServer } from "../../context/providers/server-wix-hook";
-import { allProductsKeywords, seoDescriptions } from "../../lib/utils";
+import {
+	allProductsKeywords,
+	collectionsData,
+	seoDescriptions,
+} from "../../lib/utils";
 
 export async function myCollectionQueryFunction(id) {
 	if (!id) {
@@ -23,7 +28,22 @@ export async function myCollectionQueryFunction(id) {
 			const desc =
 				seoDescriptions[name.toLowerCase()] || "No description available";
 			const keywords = allProductsKeywords[name.toLowerCase()] || [];
-			return { name, numberOfProducts, imageUrl, desc, keywords };
+			const collectionBuffer = await getBase64(imageUrl);
+			const image_urlBuffers = await Promise.all(
+				collectionsData[id].map(async (item) => {
+					const image_urlBuffer = await getBase64(imageUrl);
+					return image_urlBuffer;
+				})
+			);
+			return {
+				name,
+				numberOfProducts,
+				imageUrl,
+				desc,
+				keywords,
+				image_urlBuffers,
+				collectionBuffer,
+			};
 		} else {
 			return {
 				name: "Default Name",

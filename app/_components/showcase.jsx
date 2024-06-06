@@ -4,22 +4,21 @@ import Link from "next/link";
 import getBase64 from "../api/getBase64";
 
 export default async function Showcase() {
-	// const images = [
-	// 	"https://i.pinimg.com/564x/72/87/3a/72873a27fe5764eccf586c1d9c4191b1.jpg",
-	// 	"https://i.pinimg.com/736x/23/88/1c/23881cff194c40ffe0013f4a77683bbe.jpg",
-	// 	"https://i.pinimg.com/474x/d7/fe/0f/d7fe0f7f31ef4d38f6c87841022f2168.jpg",
-	// 	"https://i.pinimg.com/564x/58/05/93/580593fe3965903d4850ab3ab97359f6.,jpg",
-	// 	"https://i.pinimg.com/736x/5e/f6/0f/5ef60f94f18369c8416fc4be8327cbf7.jpg",
-	// 	"https://i.pinimg.com/736x/87/f1/49/87f1493a51fa245fb5e75c8f9be664a9.jpg",
-	// ];
+	const images = [
+		"https://i.pinimg.com/564x/72/87/3a/72873a27fe5764eccf586c1d9c4191b1.jpg",
+		"https://i.pinimg.com/736x/23/88/1c/23881cff194c40ffe0013f4a77683bbe.jpg",
+		"https://i.pinimg.com/474x/d7/fe/0f/d7fe0f7f31ef4d38f6c87841022f2168.jpg",
+		"https://i.pinimg.com/564x/58/05/93/580593fe3965903d4850ab3ab97359f6.,jpg",
+		"https://i.pinimg.com/736x/5e/f6/0f/5ef60f94f18369c8416fc4be8327cbf7.jpg",
+		"https://i.pinimg.com/736x/87/f1/49/87f1493a51fa245fb5e75c8f9be664a9.jpg",
+	];
 
-	// const collectionBuffers = await Promise.all(
-	// 	images.map(async (image) => {
-	// 		const buffer = await getBase64(image);
-	// 		return buffer;
-	// 	})
-	// );
-
+	const collectionBuffers = await Promise.all(
+		images.map(async (image) => {
+			const buffer = await getBase64(image);
+			return buffer;
+		})
+	);
 	return (
 		<section className="pt-2">
 			<div className="grid h-full grid-cols-1 gap-2 sm:grid-cols-2">
@@ -35,6 +34,7 @@ export default async function Showcase() {
                         (max-width: 768px) 75vw,
                         (max-width: 1060px) 50vw,
                         33vw"
+						blurDataURL={collectionBuffers[0]}
 					/>
 					<div
 						className="absolute inset-0 z-40"
@@ -62,6 +62,7 @@ export default async function Showcase() {
                             (max-width: 768px) 75vw,
                             (max-width: 1060px) 50vw,
                             33vw"
+							blurDataURL={collectionBuffers[1]}
 						/>
 						<div
 							className="absolute inset-0 z-40"
@@ -87,6 +88,7 @@ export default async function Showcase() {
                   (max-width: 768px) 75vw,
                   (max-width: 1060px) 50vw,
                   33vw"
+							blurDataURL={collectionBuffers[2]}
 						/>
 						<div
 							className="absolute inset-0 z-40"
@@ -142,6 +144,7 @@ export default async function Showcase() {
                             (max-width: 768px) 75vw,
                             (max-width: 1060px) 50vw,
                             33vw"
+							blurDataURL={collectionBuffers[4]}
 						/>
 						<div
 							className="absolute inset-0 z-40"
@@ -168,6 +171,7 @@ export default async function Showcase() {
                         (max-width: 768px) 75vw,
                         (max-width: 1060px) 50vw,
                         33vw"
+						blurDataURL={collectionBuffers[5]}
 					/>
 					<div
 						className="absolute inset-0 z-40"
