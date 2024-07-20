@@ -109,7 +109,7 @@ export default function SingleCollection({ id }) {
 
 const BreadcrumbComponent = ({ id }) => {
 	return (
-		<Breadcrumb className="">
+		<Breadcrumb className="px-4">
 			<BreadcrumbList>
 				<BreadcrumbItem>
 					<Link href="/" className="text-xs font-medium">

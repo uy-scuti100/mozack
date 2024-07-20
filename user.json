@@ -1,0 +1,11 @@
+{
+    "modes": {
+        "javascript": {
+            "commands": {
+                "Tools:Complete:Snippet": {
+                    "clg": "console.log(${1});"
+                }
+            }
+        }
+    }
+}

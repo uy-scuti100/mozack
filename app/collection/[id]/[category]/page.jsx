@@ -58,6 +58,7 @@ export default async function page({ params }) {
 	return (
 		<main className="pt-32 pb-20">
 			<BreadcrumbComponent id={category} />
+
 			<div className="mt-10">
 				<div className="w-full relative h-[500px]  mt-5">
 					<Image
