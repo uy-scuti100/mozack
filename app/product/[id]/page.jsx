@@ -15,7 +15,6 @@ import Link from "next/link";
 export default async function page({ params }) {
 	const id = params.id;
 	const product = await myProductQuery(id);
-	console.log(product);
 
 	const formattedProduct = formatSingleProduct(product, fetchAll);
 	// base64 funtion for images blurred data

@@ -80,7 +80,6 @@ export default function ProductComponent({ product, blobs }) {
 					<div className="w-full h-full col-span-2">
 						{isMobile ? (
 							<Swiper
-								pagination={true}
 								modules={[Pagination, Autoplay]}
 								className="productSlider"
 								autoplay={{
