@@ -1,5 +1,4 @@
 "use client";
-import { useState, useEffect } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -10,72 +9,78 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
-import getRandomRating from "../../../../lib/utils";
+import {
+	Breadcrumb,
+	BreadcrumbItem,
+	BreadcrumbList,
+	BreadcrumbPage,
+	BreadcrumbSeparator,
+} from "../../../../components/ui/breadcrumb.jsx";
+import { useQuery } from "@tanstack/react-query";
+import { formatSingleProduct } from "../../../../lib/product-formatter.js";
+import { myProductQuery } from "../../../../actions/server/index.js";
+import { fetchAll } from "../../../../lib/queries/fields/index.js";
+import Link from "next/link";
+import {
+	useDiscountedPrice,
+	useMediaQuery,
+	useStatistics,
+} from "../../../../lib/hooks/index.js";
 
-export default function ProductComponent({ product, blobs }) {
-	const [isMobile, setIsMobile] = useState(true);
-	const [rating, setRating] = useState(0);
-	const [reviews, setReviews] = useState(0);
-	const [stars, setStars] = useState("");
-	useEffect(() => {
-		const handleChange = () => {
-			const screensize = window.innerWidth;
-			if (screensize <= 984) {
-				setIsMobile(true);
-			} else {
-				setIsMobile(false);
-			}
-		};
+export default function ProductComponent({ id }) {
+	const { isMobile } = useMediaQuery();
+	const { reviews, rating, stars } = useStatistics();
+	const { data, error, isFetched, isLoading, isFetching } = useQuery({
+		queryKey: ["singleproduct and blobs", id],
+		queryFn: () => myProductQuery(id),
+	});
 
-		handleChange();
+	const product = data?.product;
+	const blobs = data?.blobs || [];
 
-		window.addEventListener("resize", handleChange);
-		return () => window.removeEventListener("resize", handleChange);
-	}, []);
+	const formattedProduct = formatSingleProduct(product, fetchAll);
 
-	useEffect(() => {
-		function getRandomRating() {
-			const rating = Math.floor(Math.random() * 5) + 1;
-			setRating(rating);
-
-			// Generate a random number of reviews (let's assume between 1 and 100)
-			const reviews = Math.floor(Math.random() * 100) + 1;
-			setReviews(reviews);
-
-			// Create star icons based on the rating
-			let stars = "";
-			for (let i = 0; i < 5; i++) {
-				if (i < rating) {
-					stars += "★"; // Solid colored star
-				} else {
-					stars += "☆"; // Empty star
-				}
-			}
-			setStars(stars);
-		}
-		getRandomRating();
-	}, []);
-
-	const cleanPrice = (price) => {
-		if (!price) return 0;
-		const cleaned = price.replace(/[^\d.]/g, "");
-		return parseFloat(cleaned);
-	};
-
-	const productPrice = cleanPrice(product?.productPrice);
-	const productDiscountPrice = cleanPrice(product?.productDiscountPrice);
-	const discountPercentage =
-		productPrice > productDiscountPrice
-			? ((productPrice - productDiscountPrice) / productPrice) * 100
-			: 0;
-
+	const discountPercentage = useDiscountedPrice(
+		formattedProduct?.productPrice,
+		formattedProduct?.productDiscountPrice
+	);
+	if (isLoading || isFetching) {
+		return <div>Loading...</div>;
+	}
 	return (
 		<div>
 			<div>
+				<div className="px-4">
+					<Breadcrumb>
+						<BreadcrumbList>
+							<BreadcrumbItem>
+								<Link
+									href={`/collection/${formattedProduct?.productCategory}`}
+									className="text-xs font-medium text-black underline capitalize"
+								>
+									{formattedProduct?.productCategory}
+								</Link>
+							</BreadcrumbItem>
+							<BreadcrumbSeparator />
+							<BreadcrumbItem>
+								<Link
+									href={`/collection/${formattedProduct?.productCategory}/${formattedProduct?.productCollection}`}
+									className="text-xs font-medium text-black underline capitalize"
+								>
+									{formattedProduct?.productCollection}
+								</Link>
+							</BreadcrumbItem>
+							<BreadcrumbSeparator />
+							<BreadcrumbPage className="text-xs font-medium capitalize font-mont text-[#777]">
+								{formattedProduct?.productName}
+							</BreadcrumbPage>
+						</BreadcrumbList>
+					</Breadcrumb>
+				</div>
 				<div
 					className={`${
 						!isMobile && "grid px-[0.63rem]"
-					} grid-cols-3 max-w-[1920px] mx-auto`}
+					} grid-cols-3 max-w-[1920px] mx-auto mt-5`}
 				>
 					<div className="w-full h-full col-span-2">
 						{isMobile ? (
@@ -90,15 +95,15 @@ export default function ProductComponent({ product, blobs }) {
 								pagination={{ clickable: true }}
 								loop
 							>
-								{product?.collectionMediaItems.map((image, index) => (
+								{formattedProduct?.collectionMediaItems.map((image, index) => (
 									<SwiperSlide key={index}>
 										<Image
 											src={image}
 											width={500}
 											height={500}
-											blurDataURL={blobs[index]}
-											placeholder="blur"
-											alt={product?.productName}
+											// blurDataURL={blobs[index]}
+											// placeholder="blur"
+											alt={formattedProduct?.productName}
 											className="object-cover w-full max-h-[500px]"
 											sizes="(min-width: 808px) 50vw, 100vw"
 											loading="lazy"
@@ -108,7 +113,7 @@ export default function ProductComponent({ product, blobs }) {
 							</Swiper>
 						) : (
 							<div className="grid grid-cols-2 gap-4">
-								{product?.collectionMediaItems.map((image, index) => (
+								{formattedProduct?.collectionMediaItems.map((image, index) => (
 									<div
 										key={index}
 										className="relative min-w-[300px] min-h-[400px]"
@@ -116,9 +121,9 @@ export default function ProductComponent({ product, blobs }) {
 										<Image
 											src={image}
 											fill
-											blurDataURL={blobs[index]}
-											placeholder="blur"
-											alt={product?.productName}
+											// blurDataURL={blobs[index]}
+											// placeholder="blur"
+											alt={formattedProduct?.productName}
 											className="object-cover w-full h-full "
 											sizes="(min-width: 808px) 50vw, 100vw"
 											loading="lazy"
@@ -130,13 +135,13 @@ export default function ProductComponent({ product, blobs }) {
 					</div>
 					{/* product details */}
 					<div className={`px-4 mt-10 cols-span-1 ${!isMobile && "mt-0"}`}>
-						{product?.productRibbon && (
+						{formattedProduct?.productRibbon && (
 							<div className="">
-								<p>{product?.productRibon}</p>
+								<p>{formattedProduct?.productRibon}</p>
 							</div>
 						)}
 						<h1 className="text-2xl font-medium text-black">
-							{product?.productName}
+							{formattedProduct?.productName}
 						</h1>
 						<div className="flex flex-col gap-4 mt-2">
 							<div className="flex items-center gap-1">
@@ -155,21 +160,22 @@ export default function ProductComponent({ product, blobs }) {
 
 						<div className="mt-2">
 							<div>
-								{productPrice > productDiscountPrice ? (
+								{formattedProduct?.productPrice >
+								formattedProduct.productDiscountPrice ? (
 									<div className="flex items-center gap-2">
 										<h3 className="font-semibold text-[#D7373D] line-through">
-											{product?.productPrice}
+											{formattedProduct?.productPrice}
 										</h3>
 										<h3 className="font-semibold">
-											{product?.productDiscountPrice}
+											{formattedProduct.productDiscountPrice}
 										</h3>
-										<p className="text-[#D7373D] ">
-											{discountPercentage.toFixed()}% off
-										</p>
+										<p className="text-[#D7373D] ">{discountPercentage}% off</p>
 									</div>
 								) : (
 									<div>
-										<h3 className="font-semibold">{product?.productPrice}</h3>
+										<h3 className="font-semibold">
+											{formattedProduct?.productPrice}
+										</h3>
 									</div>
 								)}
 							</div>

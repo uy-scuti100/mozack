@@ -25,13 +25,16 @@ export default async function page() {
 				<Breadcrumb>
 					<BreadcrumbList>
 						<BreadcrumbItem>
-							<Link href="/" className="text-xs font-medium">
+							<Link
+								href="/"
+								className="text-xs font-medium text-black underline"
+							>
 								Home
 							</Link>
 						</BreadcrumbItem>
 						<BreadcrumbSeparator />
 						<BreadcrumbItem>
-							<BreadcrumbPage className="text-xs font-medium font-mont">
+							<BreadcrumbPage className="text-xs font-medium font-mont text-[#777]">
 								Collections
 							</BreadcrumbPage>
 						</BreadcrumbItem>

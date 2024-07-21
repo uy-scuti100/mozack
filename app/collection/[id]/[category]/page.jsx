@@ -6,6 +6,7 @@ import { formatProducts } from "../../../../lib/product-formatter";
 import { fetchAll } from "../../../../lib/queries/fields/index";
 import { collectionsData } from "../../../../lib/utils";
 import getBase64 from "../../../api/getBase64";
+import ProductsComponent from "./_components/products-component";
 
 export default async function page({ params }) {
 	const category = params.category;
@@ -41,7 +42,7 @@ export default async function page({ params }) {
 	const catData = collectionsData[id].filter(
 		(item) => item.slug === category
 	)[0];
-	const { name, image_url } = catData;
+	const { name, image_url, description } = catData;
 
 	// base64 funtion for images blurred data
 
@@ -59,8 +60,8 @@ export default async function page({ params }) {
 		<main className="pt-32 pb-20">
 			<BreadcrumbComponent id={category} />
 
-			<div className="mt-10">
-				<div className="w-full relative h-[500px]  mt-5">
+			<div className="grid grid-cols-1 mt-10 sm:grid-cols-2">
+				<div className="w-full relative h-[300px] ">
 					<Image
 						src={image_url}
 						alt={name}
@@ -75,62 +76,23 @@ export default async function page({ params }) {
 					/>
 					<div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-20"></div>
 				</div>
-				<div>
-					<div className="px-4 my-10 ">
-						<h3 className="text-xl font-semibold font-mont">Categories</h3>
+				<div className=" px-20 py-10 bg-[#F6F6F4] flex justify-center gap-5  flex-col items-center">
+					<div className="flex flex-col items-center justify-center">
+						<h1 className="text-4xl font-semibold capitalize sm:text-7xl">
+							{name}
+						</h1>
+						<small className="text-xs text-center">(category)</small>
+					</div>
+					<div>
+						<p className="text-center">{description}</p>
 					</div>
 				</div>
 			</div>
 
-			<div className="grid w-full grid-cols-2 px-4 mt-5 gap-x-3 gap-y-12 md:grid-cols-3">
-				{categoryProducts.map((item, index) => (
-					<div className="flex flex-col gap-5" key={index}>
-						<Link
-							href={`/product/${item.productSlug}`}
-							className="flex flex-col w-full h-[280px] sm:h-[287px]  md:h-[300px]  lg:h-[500px] gap-2"
-						>
-							<div className="relative w-full h-full ">
-								<Image
-									src={item.collectionMediaItems[0].imageUrl}
-									alt={item.productName}
-									fill
-									placeholder="blur"
-									blurDataURL={image_urlBuffers[index]}
-									className="w-full h-full object-fit lg:object-cover"
-									sizes="(max-width: 480px) 100vw,
-                                    (max-width: 768px) 75vw,
-                                    (max-width: 1060px) 50vw,
-                                    33vw"
-								/>
-								<div
-									className="absolute inset-0 z-20"
-									style={{
-										background:
-											"linear-gradient(180deg, rgba(0, 0, 0, 0.00) 5%, rgba(0, 0, 0, .1) 100%)",
-									}}
-								/>
-								{item.productRibbon && (
-									<div className="absolute z-50 px-2 py-1 text-[10px] font-medium text-white uppercase bg-ash left-3 font-mont bottom-3 backdrop-blur-2xl">
-										{item.productRibbon}
-									</div>
-								)}
-							</div>
-						</Link>
-						<div className="flex flex-col">
-							{/* <div className="text-[10px] font-medium uppercase font-mont backdrop-blur-2xl pb-1 text-ash-dark">
-								<span className="">(Brand)</span> {item.productBrand}
-							</div> */}
-							<Link href={`/product/${item.productSlug}`}>
-								<h3 className="text-sm font-medium font-mont">
-									{item.productName}
-								</h3>
-							</Link>
-
-							<p className="text-xs text-ash-dark">{item.productPrice}</p>
-						</div>
-					</div>
-				))}
-			</div>
+			<ProductsComponent
+				categoryProducts={categoryProducts}
+				image_urlBuffers={image_urlBuffers}
+			/>
 		</main>
 	);
 }

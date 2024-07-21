@@ -18,28 +18,31 @@ export const BreadcrumbComponent = ({ id }) => {
 		<Breadcrumb className="px-4">
 			<BreadcrumbList>
 				<BreadcrumbItem>
-					<Link href="/" className="text-xs font-medium">
+					<Link href="/" className="text-xs font-medium text-black underline">
 						Home
 					</Link>
 				</BreadcrumbItem>
 				<BreadcrumbSeparator />
 				<BreadcrumbItem>
-					<BreadcrumbPage className="text-xs font-medium font-mont">
-						Collection
-					</BreadcrumbPage>
+					<Link
+						href="/collections"
+						className="text-xs font-medium text-black underline"
+					>
+						Collections
+					</Link>
 				</BreadcrumbItem>
 				<BreadcrumbSeparator />
 				<BreadcrumbItem>
 					<Link
 						href={`/collection/${link}`}
-						className="text-xs font-medium capitalize "
+						className="text-xs font-medium text-black underline capitalize "
 					>
 						{link}
 					</Link>
 				</BreadcrumbItem>
 				<BreadcrumbSeparator />
 				<BreadcrumbItem>
-					<BreadcrumbPage className="text-xs font-medium capitalize font-mont">
+					<BreadcrumbPage className="text-xs font-medium capitalize font-mont text-[#777]">
 						{id}
 					</BreadcrumbPage>
 				</BreadcrumbItem>
