@@ -68,8 +68,8 @@ export default async function page({ params }) {
 				</div>
 				<div className="px-5 bg-[#F6F6F4] flex justify-center gap-5  flex-col items-center">
 					{catData ? (
-						<>
-							<div className="flex flex-col items-center justify-center">
+						<div className="p-5">
+							<div className="flex flex-col items-center justify-center ">
 								<h1 className="text-4xl font-semibold capitalize sm:text-7xl">
 									{name}
 								</h1>
@@ -78,14 +78,20 @@ export default async function page({ params }) {
 							<div>
 								<p className="text-center">{description}</p>
 							</div>
-						</>
+						</div>
 					) : (
-						<div className="flex flex-col items-center justify-center">
-							<div className="w-1/2 h-10 bg-gray-300 animate-pulse"></div>
+						<div className="flex flex-col items-center justify-center gap-6 p-5">
+							<div className="h-16 rounded-md bg-deep-brown/50 w-[14rem] animate-pulse"></div>
 
 							<small className="text-xs text-center">
-								<div className="w-1/4 h-3 bg-gray-300 animate-pulse"></div>
+								<div className="h-3 rounded-md w-28 bg-deep-brown/50 animate-pulse"></div>
 							</small>
+							<div className="flex flex-col items-center justify-center w-full gap-2">
+								<div className="w-full h-3 rounded-md bg-deep-brown/50 animate-pulse"></div>
+								<div className="w-[90%] h-3 rounded-md w- bg-deep-brown/50 animate-pulse"></div>
+								<div className="w-[70%] h-3 rounded-md w- bg-deep-brown/50 animate-pulse"></div>
+								<div className="w-[50%] h-3 rounded-md w- bg-deep-brown/50 animate-pulse"></div>
+							</div>
 						</div>
 					)}
 				</div>
