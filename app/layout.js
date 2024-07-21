@@ -100,7 +100,7 @@ export default function RootLayout({ children }) {
 					crawlSpeed={200}
 					height={5}
 					crawl={true}
-					showSpinner={true}
+					showSpinner={false}
 					easing="ease"
 					speed={200}
 					shadow="0 0 10px #4C3D30,0 0 5px #4C3D30"

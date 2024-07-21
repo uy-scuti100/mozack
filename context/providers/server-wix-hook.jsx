@@ -1,6 +1,5 @@
 import { createClient, OAuthStrategy } from "@wix/sdk";
 import { products, collections, inventory } from "@wix/stores";
-import { dashboard } from "@wix/dashboard";
 import { cookies } from "next/headers";
 
 export async function wixClientServer() {
