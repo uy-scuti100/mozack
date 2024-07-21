@@ -98,8 +98,6 @@ export default function ProductComponent({ id }) {
 											src={image}
 											width={500}
 											height={500}
-											// blurDataURL={blobs[index]}
-											// placeholder="blur"
 											alt={formattedProduct?.productName}
 											className="object-cover w-full max-h-[500px]"
 											sizes="(min-width: 808px) 50vw, 100vw"
@@ -131,7 +129,9 @@ export default function ProductComponent({ id }) {
 						)}
 					</div>
 					{/* product details */}
-					<div className={`px-4 mt-10 cols-span-1 ${!isMobile && "mt-0"}`}>
+					<div
+						className={`px-4 mt-10 sm:mt-0 cols-span-1 ${!isMobile && "mt-0"}`}
+					>
 						{formattedProduct?.productRibbon && (
 							<div className="">
 								<p>{formattedProduct?.productRibon}</p>

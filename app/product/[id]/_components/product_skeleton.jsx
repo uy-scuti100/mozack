@@ -10,7 +10,9 @@ export default function ProductSkeleton() {
 				<FaCaretRight className="text-deep-brown/50 animate-pulse" />
 				<div className="h-2 rounded-md w-44 bg-deep-brown/50 animate-pulse"></div>
 			</div>
-			<div className="bg-[#bbb2a4] w-full animate-pulse h-[300px] mt-10"></div>
+			<div className="w-full h-full">
+				<div className="bg-[#bbb2a4] w-full h-[800px] animate-pulse max-h-[800px] mt-10"></div>
+			</div>
 			{/* deets */}
 			<div className="flex flex-col w-full px-3 mt-10">
 				<div className="w-[50%] h-3 rounded-md bg-deep-brown/50 animate-pulse"></div>
