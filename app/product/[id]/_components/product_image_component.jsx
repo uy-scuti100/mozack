@@ -26,26 +26,23 @@ import {
 	useMediaQuery,
 	useStatistics,
 } from "../../../../lib/hooks/index.js";
+import ProductSkeleton from "./product_skeleton.jsx";
 
 export default function ProductComponent({ id }) {
 	const { isMobile } = useMediaQuery();
 	const { reviews, rating, stars } = useStatistics();
-	const { data, error, isFetched, isLoading, isFetching } = useQuery({
+	const { data, isLoading, isFetching } = useQuery({
 		queryKey: ["singleproduct and blobs", id],
 		queryFn: () => myProductQuery(id),
 	});
-
 	const product = data?.product;
-	const blobs = data?.blobs || [];
-
 	const formattedProduct = formatSingleProduct(product, fetchAll);
-
 	const discountPercentage = useDiscountedPrice(
 		formattedProduct?.productPrice,
 		formattedProduct?.productDiscountPrice
 	);
 	if (isLoading || isFetching) {
-		return <div>Loading...</div>;
+		return <ProductSkeleton />;
 	}
 	return (
 		<div>

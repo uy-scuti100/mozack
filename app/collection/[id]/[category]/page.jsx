@@ -44,17 +44,7 @@ export default async function page({ params }) {
 	)[0];
 	const { name, image_url, description } = catData;
 
-	// base64 funtion for images blurred data
-
 	const collectionBuffer = await getBase64(image_url);
-	const image_urlBuffers = await Promise.all(
-		categoryProducts.map(async (item) => {
-			const image_urlBuffer = await getBase64(
-				item.collectionMediaItems[0].imageUrl
-			);
-			return image_urlBuffer;
-		})
-	);
 
 	return (
 		<main className="pt-32 pb-20">
@@ -76,23 +66,32 @@ export default async function page({ params }) {
 					/>
 					<div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-20"></div>
 				</div>
-				<div className="bg-[#F6F6F4] flex justify-center gap-5  flex-col items-center">
-					<div className="flex flex-col items-center justify-center">
-						<h1 className="text-4xl font-semibold capitalize sm:text-7xl">
-							{name}
-						</h1>
-						<small className="text-xs text-center">(category)</small>
-					</div>
-					<div>
-						<p className="text-center">{description}</p>
-					</div>
+				<div className="px-5 bg-[#F6F6F4] flex justify-center gap-5  flex-col items-center">
+					{catData ? (
+						<>
+							<div className="flex flex-col items-center justify-center">
+								<h1 className="text-4xl font-semibold capitalize sm:text-7xl">
+									{name}
+								</h1>
+								<small className="text-xs text-center">(category)</small>
+							</div>
+							<div>
+								<p className="text-center">{description}</p>
+							</div>
+						</>
+					) : (
+						<div className="flex flex-col items-center justify-center">
+							<div className="w-1/2 h-10 bg-gray-300 animate-pulse"></div>
+
+							<small className="text-xs text-center">
+								<div className="w-1/4 h-3 bg-gray-300 animate-pulse"></div>
+							</small>
+						</div>
+					)}
 				</div>
 			</div>
 
-			<ProductsComponent
-				categoryProducts={categoryProducts}
-				image_urlBuffers={image_urlBuffers}
-			/>
+			<ProductsComponent categoryProducts={categoryProducts} />
 		</main>
 	);
 }

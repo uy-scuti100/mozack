@@ -33,7 +33,7 @@ export default function SingleCollection({ id }) {
 			<div className="grid grid-cols-1 mt-10 sm:grid-cols-2">
 				<div className="w-full relative h-[300px] ">
 					{isFetching || isLoading ? (
-						<div className="w-full h-full transition-all duration-[2s] ease-out animate-pulse bg-gradient-to-b from-white via-[#FFF9F1] to-[#ffe9cb]" />
+						<div className="w-full h-full transition-all duration-200 ease-out animate-pulse bg-gradient-to-b from-white via-[#FFF9F1] to-[#ffe9cb]" />
 					) : (
 						<Image
 							src={data?.imageUrl}
@@ -49,16 +49,36 @@ export default function SingleCollection({ id }) {
 					)}
 					<div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-20"></div>
 				</div>
-				<div className=" px-20 py-10 sm:py-0 bg-[#F6F6F4] flex justify-center gap-5  flex-col items-center">
-					<div className="flex flex-col items-center justify-center">
-						<h1 className="text-4xl font-semibold capitalize sm:text-5xl md:text-7xl">
-							{data?.name}
-						</h1>
-						<small className="text-xs text-center">(collection)</small>
-					</div>
-					<div>
-						<p className="text-center sm:text-sm md:text-base">{data?.desc}</p>
-					</div>
+				<div className="sm:py-0 bg-[#F6F6F4] flex justify-center gap-5  flex-col items-center">
+					{isFetching || isLoading ? (
+						<div className="flex flex-col items-center justify-center gap-6">
+							<div className="h-16 rounded-md bg-deep-brown/50 w-[14rem] animate-pulse"></div>
+
+							<small className="text-xs text-center">
+								<div className="h-3 rounded-md w-28 bg-deep-brown/50 animate-pulse"></div>
+							</small>
+							<div className="flex flex-col items-center justify-center w-full gap-2">
+								<div className="w-full h-3 rounded-md bg-deep-brown/50 animate-pulse"></div>
+								<div className="w-[90%] h-3 rounded-md w- bg-deep-brown/50 animate-pulse"></div>
+								<div className="w-[70%] h-3 rounded-md w- bg-deep-brown/50 animate-pulse"></div>
+								<div className="w-[50%] h-3 rounded-md w- bg-deep-brown/50 animate-pulse"></div>
+							</div>
+						</div>
+					) : (
+						<div>
+							<div className="flex flex-col items-center justify-center px-5">
+								<h1 className="text-4xl font-semibold uppercase sm:text-5xl md:text-7xl">
+									{data?.name}
+								</h1>
+								<small className="text-xs text-center">(collection)</small>
+							</div>
+							<div>
+								<p className="text-center sm:text-sm md:text-base">
+									{data?.desc}
+								</p>
+							</div>
+						</div>
+					)}
 				</div>
 			</div>
 

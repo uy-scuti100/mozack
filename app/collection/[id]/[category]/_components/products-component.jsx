@@ -6,10 +6,7 @@ import { useState } from "react";
 import Filter from "./filter";
 import { useMediaQuery } from "../../../../../lib/hooks";
 
-export default function ProductsComponent({
-	categoryProducts,
-	image_urlBuffers,
-}) {
+export default function ProductsComponent({ categoryProducts }) {
 	const { isMobile } = useMediaQuery();
 
 	const [mobileView, setMobileView] = useState(isMobile ? "double" : "tripple");
@@ -44,10 +41,6 @@ export default function ProductsComponent({
 									src={item.collectionMediaItems[0].imageUrl}
 									alt={item.productName}
 									fill
-									{...(image_urlBuffers && {
-										placeholder: "blur",
-										blurDataURL: image_urlBuffers[index],
-									})}
 									className={`w-full h-full ${
 										mobileView === "double"
 											? "object-fit sm:object-cover"
