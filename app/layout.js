@@ -7,6 +7,7 @@ import ReactQueryProvider from "../context/providers/tanstack-query-provider";
 import { WixClientContextProvider } from "../context/providers/wix-client-provider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import NextTopLoader from "nextjs-toploader";
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -93,6 +94,17 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body className={`${inter.variable} ${montserrat.variable} antialiased`}>
+				<NextTopLoader
+					color="#4C3D30"
+					initialPosition={0.15}
+					crawlSpeed={200}
+					height={5}
+					crawl={true}
+					showSpinner={true}
+					easing="ease"
+					speed={200}
+					shadow="0 0 10px #4C3D30,0 0 5px #4C3D30"
+				/>
 				<Analytics />
 				<SpeedInsights />
 				<ReactQueryProvider>

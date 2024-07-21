@@ -76,7 +76,7 @@ export default async function page({ params }) {
 					/>
 					<div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-20"></div>
 				</div>
-				<div className=" px-20 py-10 bg-[#F6F6F4] flex justify-center gap-5  flex-col items-center">
+				<div className="bg-[#F6F6F4] flex justify-center gap-5  flex-col items-center">
 					<div className="flex flex-col items-center justify-center">
 						<h1 className="text-4xl font-semibold capitalize sm:text-7xl">
 							{name}
