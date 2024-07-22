@@ -261,19 +261,19 @@ const SortProducts = ({
 								</Button>
 							</SheetClose>
 							<Button
-								// onClick={() => {
-								// 	const params = new URLSearchParams();
-								// 	if (filterValues.availability)
-								// 		params.set("availability", "true");
-								// 	if (filterValues.brand.length)
-								// 		params.set("brand", filterValues.brand.join(","));
-								// 	if (filterValues.price)
-								// 		params.set("price", filterValues.price);
-								// 	if (filterValues.sort) params.set("sort", filterValues.sort);
-								// 	router.push(`${pathname}?${params.toString()}`);
-								// 	setIsOpen(false);
-								// }}
-								onClick={console.log(filterValues)}
+								onClick={() => {
+									const params = new URLSearchParams();
+									if (filterValues.availability)
+										params.set("availability", "true");
+									if (filterValues.brand.length)
+										params.set("brand", filterValues.brand.join(","));
+									if (filterValues.price)
+										params.set("price", filterValues.price);
+									if (filterValues.sort) params.set("sort", filterValues.sort);
+									router.push(`${pathname}?${params.toString()}`);
+									setIsOpen(false);
+								}}
+								// onClick={console.log(filterValues)}
 								className="px-8 py-6 text-base text-white uppercase transition-all duration-500 bg-black rounded-none hover:bg-deep-brown hover:text-white"
 							>
 								View Results
