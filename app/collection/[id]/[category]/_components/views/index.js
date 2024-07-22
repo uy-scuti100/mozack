@@ -1,34 +1,38 @@
 export const SingleView = ({ setView, view }) => {
 	return (
-		<svg
-			onClick={setView}
-			role="presentation"
-			width="20"
-			height="20"
-			viewBox="0 0 18 18"
-			fill="none"
-			className={`cursor-pointer ${view === "single" ? "" : "opacity-50"}`}
-		>
-			<path fill="currentcolor" d="M0 0h18v18H0z"></path>
-		</svg>
+		<button className="p-1">
+			<svg
+				onClick={setView}
+				role="presentation"
+				width="20"
+				height="20"
+				viewBox="0 0 18 18"
+				fill="none"
+				className={`cursor-pointer ${view === "single" ? "" : "opacity-50"}`}
+			>
+				<path fill="currentcolor" d="M0 0h18v18H0z"></path>
+			</svg>
+		</button>
 	);
 };
 export const DoubleView = ({ setView, view }) => {
 	return (
-		<svg
-			onClick={setView}
-			role="presentation"
-			width="20"
-			height="20"
-			viewBox="0 0 18 18"
-			fill="none"
-			className={`cursor-pointer ${view === "double" ? "" : "opacity-50"}`}
-		>
-			<path
-				fill="currentcolor"
-				d="M0 0h8v8H0zM0 10h8v8H0zM10 0h8v8h-8zM10 10h8v8h-8z"
-			></path>
-		</svg>
+		<button className="p-1">
+			<svg
+				onClick={setView}
+				role="presentation"
+				width="20"
+				height="20"
+				viewBox="0 0 18 18"
+				fill="none"
+				className={`cursor-pointer ${view === "double" ? "" : "opacity-50"}`}
+			>
+				<path
+					fill="currentcolor"
+					d="M0 0h8v8H0zM0 10h8v8H0zM10 0h8v8h-8zM10 10h8v8h-8z"
+				></path>
+			</svg>
+		</button>
 	);
 };
 
